@@ -8,9 +8,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#FD7543",
+    "navigationBarTitleText": "专享停车",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [
@@ -41,5 +41,11 @@
     ],
     "color": "#bbb",
     "selectedColor": "#FD7543"
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
   }
 }
