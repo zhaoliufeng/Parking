@@ -1,8 +1,13 @@
 /**index.wxss**/
 
 #locate {
-  width: 70rpx;
-  height: 70rpx;
+  left: 30rpx;
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
+  top: 160rpx;
+  background: wheat;
+  border-radius: 50%;
 }
 
 #cv_locate {
@@ -45,17 +50,18 @@
 }
 
 #lock_info {
-  border: 1px solid #eeeeee;
+  border: 1px solid #eee;
   padding: 5rpx;
   border-radius: 9rpx;
   position: absolute;
   left: 50%;
   top: 100%;
   margin-left: -350rpx;
-  margin-top: -260rpx;
+  margin-top: -270rpx;
   background: white;
   height: 240rpx;
   width: 700rpx;
+  border-bottom: 1px solid #dedede;
 }
 
 #lock_info_type {
@@ -104,5 +110,42 @@
 }
 
 #cv_action {
-  border-top: 1px solid #dedede;
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+}
+
+.cv_guide {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  align-items: center;
+  line-height: 100rpx;
+}
+
+#btn_guide {
+  line-height: 76rpx;
+  width: 200rpx;
+  height: 76rpx;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: 12rpx;
+  left: 75rpx;
+}
+
+.cv_rent {
+  line-height: 100rpx;
+  width: 50%;
+  color: #2a62ff;
+  text-align: center;
+}
+
+#btn_rent {
+  line-height: 80rpx;
+  width: 200rpx;
+  height: 76rpx;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: 12rpx;
+  right: 75rpx;
 }

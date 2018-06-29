@@ -50,7 +50,7 @@ Page({
     }
   },
 
-  maptap:function(){
+  maptap: function() {
     //点击地图 如果显示了锁的详情信息则收起
     if (this.data.showLockInfo) {
       this.setData({
@@ -59,15 +59,23 @@ Page({
       })
     }
   },
+  onguide: function() {
+    console.log("导航到此处")
+  },
+
+  onrent: function() {
+    console.log("立即租用")
+  },
 
   onLoad: function() {
     var that = this;
     this.mapCtx = wx.createMapContext('map');
-    this.onLocate();
+    this.onlocate();
   },
 
   //定位当前终端位置
-  onLocate: function() {
+  onlocate: function() {
+    console.log("定位当前位置")
     var that = this
     //请求当前位置
     wx.getLocation({

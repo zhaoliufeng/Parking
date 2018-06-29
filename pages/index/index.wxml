@@ -4,10 +4,10 @@
   <view class="map_container">
     <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" show-location="true" markers="{{markers}}" bindmarkertap="makertap" bindtap='maptap' circles="{{cicle}}" bindregionchange="mapDrag"></map>
   </view>
- 
-  <cover-view id='cv_locate' style='margin-top: {{locatMarginTop}};'>
-    <cover-image id='locate' bindtap='onLocate' src='../../img/locate.png'></cover-image>
-  </cover-view>
+
+  <cover-image id='cv_locate' bindtap='onlocate' src='../../img/locate.png' style='margin-top: {{locatMarginTop}};'>
+
+  </cover-image>
 
 
   <cover-view id='find_palce' bindtap='onFindPlace'>您要去哪里?</cover-view>
@@ -28,8 +28,16 @@
       </cover-view>
     </cover-view>
 
+    <cover-view style='background:#dedede;height:1px;width:100%;'/>
     <cover-view id='cv_action'>
+      <cover-view class="cv_guide">
+        <cover-view id='btn_guide' class='main_button' bindtap="onguide">导航到此</cover-view>
+      </cover-view>
+      <cover-view style='background:#dedede;height:100%;width:1px;'/>
 
+      <cover-view class="cv_rent">
+       <cover-view id='btn_rent' class='main_button' bindtap="onrent">立即租用</cover-view>
+      </cover-view>
     </cover-view>
   </cover-view>
 </view>

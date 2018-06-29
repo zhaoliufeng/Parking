@@ -1,4 +1,5 @@
 /**app.wxss**/
+
 .container {
   height: 100%;
   display: flex;
@@ -7,4 +8,10 @@
   justify-content: space-between;
   padding: 0rpx 0;
   box-sizing: border-box;
-} 
+}
+
+.main_button {
+  background: #fd7543;
+  color: white;
+  border-radius: 9rpx;
+}

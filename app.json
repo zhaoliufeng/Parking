@@ -10,7 +10,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FD7543",
     "navigationBarTitleText": "专享停车",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "disableScroll": true
   },
   "tabBar": {
     "list": [
