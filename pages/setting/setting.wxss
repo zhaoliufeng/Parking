@@ -1,0 +1,45 @@
+/* pages/setting/setting.wxss */
+.view_item {
+  margin-top: 5rpx;
+  padding-left: 40rpx;
+  align-items: center;
+  line-height: 100rpx;
+  height: 100rpx;
+  display: flex;
+  background: white;
+}
+
+#bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #f5f5f5;
+}
+
+.view_item:active {
+  background: #f1f1f1;
+}
+
+.view_iv_item {
+  margin-right: 25rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.tv_item {
+  color: #666;
+  font-size: 37rpx;
+}
+
+.iv_arrow_item {
+  right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.arrow_item {
+  position: absolute;
+  right: 20rpx;
+  height: 100rpx;
+  width: 40rpx;
+}

@@ -1,0 +1,48 @@
+<!--pages/account_detail/account_detail.wxml-->
+<view id='bg'>
+   <view class='view_item' bindtap='onItemTap' id='group_view_avater' data-row='0'>
+    <view class='tv_item'>头像</view>
+
+    <view id='view_avater'>
+      <image id='avater' src='{{avaterPath}}'>img</image>
+    </view>
+
+    <view class='arrow_item' id='arrow_item_avater'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' id='iv_arrow_item_avater' />
+    </view>
+  </view> 
+
+  <view class='view_item' bindtap='onItemTap' data-row='1'>
+
+    <view class='tv_item'>昵称</view>
+    <view id='blance'>
+      <view id='view_blance'>Zhaoliufeng</view>
+    </view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='2'>
+
+    <view class='tv_item'>手机</view>
+    <view id='blance'>
+      <view id='view_blance'>17681612048</view>
+    </view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+
+  <view class='view_item' bindtap='onItemTap' data-row='3'>
+
+    <view class='tv_item'>年龄</view>
+    <view id='blance'>
+      <view id='view_blance'>22</view>
+    </view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+</view>

@@ -84,7 +84,7 @@
   border-radius: 9rpx;
   border: 1px solid #dedede;
   width: 440rpx;
-  height: 65rpx;
+  height: 75rpx;
   font-size: 28rpx;
   line-height: 65rpx;
   padding: 0 20rpx;
@@ -95,7 +95,7 @@
   border-radius: 9rpx;
   border: 1px solid #dedede;
   width: 440rpx;
-  height: 65rpx;
+  height: 75rpx;
   font-size: 28rpx;
   margin-top: 10rpx;
   line-height: 65rpx;
@@ -113,8 +113,15 @@
   color: white;
   border-radius: 7rpx;
   width: 480rpx;
-  height: 70rpx;
-  line-height: 65rpx;
+  height: 75rpx;
+  line-height: 75rpx;
   font-size: 27rpx;
   text-align: center;
+}
+
+#lock_tip{
+  font-size: 25rpx;
+  margin-top: 10rpx;
+  padding-left: 10rpx;
+  color: #e77;
 }

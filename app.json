@@ -1,10 +1,14 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/setting/setting",
     "pages/account/account",
+    "pages/account_detail/account_detail",
     "pages/my_parking/my_parking",
     "pages/rented_parking/rented_parking",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/my_order/my_order",
+    "pages/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",

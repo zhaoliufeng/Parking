@@ -6,11 +6,11 @@
   <view class="modal-title">绑定地锁</view>
   <view class="modal-content">
     <view class="modal-input">
-      <input placeholder-class="input-holder" bindinput='inputLockCode' id="inputLockCode" placeholder="请输入地锁编码"/>
-      <input placeholder-class="input-holder" bindinput='inputLockBindCode' id="inputLockBindCode" placeholder="请输入地锁绑定码"/>
+      <input placeholder-class="input-holder" bindinput='inputLockCode' id="inputLockCode" placeholder="请输入地锁编码" value='{{lockCode}}'/>
+      <text id='lock_tip'>{{lock_tip}}</text>
     </view>
-    <view class="btn_model" id='btn_scan_code' data-status="cancel">扫描二维码</view>
-    <view class="btn_model" data-status="confirm">绑定地锁</view>
+    <view class="btn_model" id='btn_scan_code' bindtap='onScanQrCode'>扫描二维码</view>
+    <view class="btn_model" bindtap='onBindLock'>绑定地锁</view>
   </view>
 </view>
 

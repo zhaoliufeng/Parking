@@ -1,1 +1,70 @@
 <!--pages/account/account.wxml-->
+
+<view id='view_account' bindtap='onAccountTap'>
+  <image src='{{accountAvater}}' id='iv_account' />
+
+  <view id='account_info'>
+    <view id='account_nickname'>
+      {{accountName}}
+    </view>
+    <view id='account_phone'>
+      {{accountPhone}}
+    </view>
+  </view>
+
+  <view class='view_arrow'>
+    <image src='../../img/right_arrow.png' class='arrow' />
+  </view>
+
+</view>
+
+<view id='bg'>
+  <view class='view_item' bindtap='onItemTap' data-row='0'>
+
+    <image src='../../img/icon_wallet.png' class='view_iv_item' />
+
+    <view class='tv_item'>账户余额</view>
+
+    <view id='blance'>
+      <view id='view_blance'>235000元</view>
+    </view>
+
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='1'>
+    <image src='../../img/icon_profit.png' class='view_iv_item' />
+
+    <view class='tv_item'>收益情况</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='2'>
+    <image src='../../img/icon_list.png' class='view_iv_item' />
+
+    <view class='tv_item'>我的订单</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' id='view_item_setting' bindtap='onItemTap' data-row='3'>
+    <image src='../../img/icon_setting.png' class='view_iv_item' />
+    <view class='tv_item'>设置</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='4'>
+    <image src='../../img/icon_message.png' class='view_iv_item' />
+    <view class='tv_item'>消息</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+</view>

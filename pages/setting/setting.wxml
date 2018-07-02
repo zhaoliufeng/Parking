@@ -1,0 +1,14 @@
+<!--pages/setting/setting.wxml-->
+<view id='bg'>
+  <view class='view_item' bindtap='onItemTap' data-row='2'>
+
+    <view class='tv_item'>手机</view>
+    <view id='blance'>
+      <view id='view_blance'>17681612048</view>
+    </view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+</view>
