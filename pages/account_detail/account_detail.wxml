@@ -1,4 +1,4 @@
-<!--pages/account_detail/account_detail.wxml-->
+<!--stage2 账户详情-->
 <view id='bg'>
    <view class='view_item' bindtap='onItemTap' id='group_view_avater' data-row='0'>
     <view class='tv_item'>头像</view>

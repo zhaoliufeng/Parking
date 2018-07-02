@@ -26,9 +26,10 @@
 }
 
 .view_iv_item {
-  margin-right: 25rpx;
   width: 40rpx;
   height: 40rpx;
+  vertical-align:middle;
+  position:relative;
 }
 
 .tv_item {
@@ -83,7 +84,9 @@
 #view_blance {
   color: #bbb;
   text-align: center;
-  line-height: 80rpx;
+  line-height: 100rpx;
   height: 100rpx;
   margin-right: 100rpx;
+  font-weight: 300;
+  font-size: 33rpx;
 }

@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/setting/setting",
+    "pages/plate_add/plate_add",
     "pages/account/account",
+    "pages/license_plate/licenese_plate",
+    "pages/setting/setting",
     "pages/account_detail/account_detail",
     "pages/my_parking/my_parking",
     "pages/rented_parking/rented_parking",

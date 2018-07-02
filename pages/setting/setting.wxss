@@ -1,4 +1,5 @@
 /* pages/setting/setting.wxss */
+
 .view_item {
   margin-top: 5rpx;
   padding-left: 40rpx;
@@ -28,13 +29,14 @@
 
 .tv_item {
   color: #666;
-  font-size: 37rpx;
+  font-size: 33rpx;
 }
 
 .iv_arrow_item {
-  right: 20rpx;
   width: 40rpx;
   height: 40rpx;
+  vertical-align: middle;
+  position: relative;
 }
 
 .arrow_item {
@@ -42,4 +44,27 @@
   right: 20rpx;
   height: 100rpx;
   width: 40rpx;
+}
+
+#blance {
+  position: absolute;
+  right: -20rpx;
+  height: 100rpx;
+}
+
+#view_blance {
+  color: #bbb;
+  font-size: 33rpx;
+  text-align: center;
+  line-height: 100rpx;
+  height: 100rpx;
+  margin-right: 100rpx;
+}
+
+#item_switch {
+  right: 80rpx;
+}
+
+#view_item_switch:active {
+  background: white;
 }

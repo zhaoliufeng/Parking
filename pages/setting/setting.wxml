@@ -1,11 +1,52 @@
-<!--pages/setting/setting.wxml-->
+<!--stage2 设置-->
 <view id='bg'>
-  <view class='view_item' bindtap='onItemTap' data-row='2'>
-
-    <view class='tv_item'>手机</view>
-    <view id='blance'>
-      <view id='view_blance'>17681612048</view>
+  <view class='view_item' data-row='0' id='view_item_switch'>
+    <view class='tv_item'>自动结账</view>
+    <view class='arrow_item' id='item_switch'>
+      <switch checked='{{swcithChecked}}' bindchange='onSwitchChange'></switch>
     </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='0'>
+    <view class='tv_item'>降锁方式</view>
+    <view id='blance'>
+      <view id='view_blance'>自动降锁</view>
+    </view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='1'>
+    <view class='tv_item'>我的车牌</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='2'>
+    <view class='tv_item'>服务协议</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='3'>
+    <view class='tv_item'>操作流程</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='4'>
+    <view class='tv_item'>常见问题解答</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <view class='view_item' bindtap='onItemTap' data-row='5'>
+    <view class='tv_item'>专享停车简介</view>
     <view class='arrow_item'>
       <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
     </view>

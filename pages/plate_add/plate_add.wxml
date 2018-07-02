@@ -1,0 +1,17 @@
+<!--pages/plate_add/plate_add.wxml-->
+<view id='bg'>
+  <view id='plate'>
+    <view id='plate_border'>
+      <text bindtap='onSelectPart'>{{part}}</text>
+      <text> · </text>
+      <text bindtap='onEditPlate' id='text_bg'>969W9</text>
+      <input id='input' bindinput='onInput' value='{{plateNumber}}' maxlength='5' placeholder-class="phcolor" placeholder='00000'></input>
+    </view>
+  </view>
+
+  <picker id='picker' mode="multiSelector" bindchange="bindPickerChange" bindcolumnchange="bindPickerColumnChange" value="{{multiIndex}}" range='{{multiArray}}'>
+    <view id='picker_sub_view'></view>
+  </picker>
+
+  <view id='confirm' bindtap='onConfirm'>确定</view>
+</view>

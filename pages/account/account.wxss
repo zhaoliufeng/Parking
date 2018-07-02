@@ -63,7 +63,7 @@
   background: white;
 }
 
-.view_item:active{
+.view_item:active {
   background: #f1f1f1;
 }
 
@@ -88,24 +88,25 @@
 
 .tv_item {
   color: #666;
-  font-size: 37rpx;
+  font-size: 33rpx;
 }
 
 .iv_arrow_item {
-  right: 20rpx;
   width: 40rpx;
   height: 40rpx;
+  vertical-align:middle;
+  position:relative;
 }
 
 .arrow_item {
-  position:absolute;
+  position: absolute;
   right: 20rpx;
   height: 100rpx;
   width: 40rpx;
 }
 
-#detail{
-  position:absolute;
+#detail {
+  position: absolute;
   right: -20rpx;
   height: 100rpx;
 }
@@ -116,10 +117,12 @@
   height: 100rpx;
 }
 
-#view_blance{
+#view_blance {
   color: #bbb;
   text-align: center;
-  line-height: 80rpx;
+  line-height: 100rpx;
   height: 100rpx;
   margin-right: 100rpx;
+  font-weight: 300;
+  font-size: 30rpx;
 }

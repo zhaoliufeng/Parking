@@ -1,4 +1,4 @@
-<!--pages/account/account.wxml-->
+<!--stage1 tab4 账户-->
 
 <view id='view_account' bindtap='onAccountTap'>
   <image src='{{accountAvater}}' id='iv_account' />

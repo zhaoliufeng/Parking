@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--stage1 tab1 首页入口-->
 
 <view class='container'>
   <view class="map_container">

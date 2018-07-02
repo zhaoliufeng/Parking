@@ -1,4 +1,4 @@
-<!--pages/my_parking/my_parking.wxml-->
+<!--stage1 tab3 我的车位-->
 <view id='btn_bind' bindtap='onBind'>立即绑定</view>
 <!--弹窗-->
 <view class="modal-mask" bindtap="onHideDialog" catchtouchmove="preventTouchMove" wx:if="{{showDialog}}"></view>

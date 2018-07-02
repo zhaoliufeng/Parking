@@ -1,0 +1,12 @@
+<!--stage3 我的车牌-->
+<view id='bg'>
+  <view wx:for="{{plates}}" wx:key="{{index}}" data-row='{{index}}' id='plate' bindlongtap='onDeletePlate'>
+    <view id='plate_border'>
+      <text id='dev_name'>{{item.part}}</text>
+      <text> · </text>
+      <text id='dev_name'>{{item.pNumber}}</text>
+    </view>
+  </view>
+
+  <image id='addCommand' bindtap='onAddPlate' src='/img/add.png'></image>
+</view>

@@ -1,4 +1,4 @@
-<!--pages/rented_parking/rented_parking.wxml-->
+<!--stage1 tab2 已租车位-->
 <view class='container'>
   <view class='btn' bindtap='onGetConnect'>连接设备</view>
   <view class='btn' bindtap='onGetDisConnect'>断开连接</view>

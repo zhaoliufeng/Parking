@@ -133,6 +133,10 @@
   left: 75rpx;
 }
 
+.main_button{
+   background: #e4683a;
+}
+
 .cv_rent {
   line-height: 100rpx;
   width: 50%;
