@@ -52,7 +52,9 @@ Page({
   },
 
   onBindLock:function(){
-    if (this.data.lockCode == null){
+    console.log(this.data.lockCode)
+    if (this.data.lockCode == null ||
+     this.data.lockCode.length == 0){
       this.setData({
         lock_tip: '地锁不存在'
       })

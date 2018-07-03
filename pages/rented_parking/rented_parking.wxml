@@ -3,7 +3,6 @@
   <view class='btn' bindtap='onGetConnect'>连接设备</view>
   <view id='btn_locked' class='btn' bindtap='onLocked'>升锁</view>
   <view id='btn_unlocked' class='btn' bindtap='onUnlocked'>降锁</view>
-  <view id='btn_unlocked' class='btn' bindtap='onInterval'>倒计时</view>
 
   <view id='view_lock' bindtap='onLockTap'>
     <image id='iv_locks' style='background-position:{{bgPosition}}rpx;'></image>
