@@ -1,0 +1,16 @@
+<!--pages/input_address_detail/input_address_detail.wxml-->
+<view id='input_bg'>
+  <input id='input' placeholder='获取地址' value='{{address}}' bindtap='onAddressTap'>
+
+  </input>
+
+    <input id='input' placeholder='请输入详细地址' bindinput='onInputAddressDetail'>
+
+  </input>
+
+    <input id='input' placeholder='请输入停车位编号' bindinput='onInputCode'>
+
+  </input>
+
+  <view id='view_upload' bindtap='onUpload'>上传</view>
+</view>

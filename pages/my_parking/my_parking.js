@@ -56,7 +56,11 @@ Page({
       this.setData({
         lock_tip: '地锁不存在'
       })
+      return
     }
+    wx.navigateTo({
+      url: '/pages/input_address_detail/input_address_detail'
+    })
   },
 
   checkLockCode:function(code){
@@ -64,5 +68,9 @@ Page({
       return true
     }
     return false
+  },
+
+  inputLockCode:function(e){
+    this.data.lockCode = e.detail.value
   }
 })

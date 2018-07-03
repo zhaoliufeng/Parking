@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/account/account",
+"pages/account/account",
+    "pages/input_address_detail/input_address_detail",
     "pages/rented_parking/rented_parking",
     "pages/index/index",
     "pages/my_order/my_order",
