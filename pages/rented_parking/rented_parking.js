@@ -2,10 +2,11 @@
 var Dec = require('../../utils/aesUnits.js');
 var OpOrder = require('../../utils/op.js');
 var Ble = require('../../utils/ble.js');
+var interval
+var lockStatus = 1
 Page({
-
   data: {
-
+    bgPosition: 300
   },
 
   onLoad: function(options) {
@@ -23,10 +24,7 @@ Page({
   },
 
   onGetDisConnect:function(){
-    wx.closeBLEConnection({
-      deviceId: '',
-      success: function(res) {},
-    })
+    Ble.disconnect()
   },
 
   onLocked: function() {
@@ -37,7 +35,6 @@ Page({
   onUnlocked: function() {
     console.log('降锁')
     Ble.sendMsg(Dec.Encrypt(OpOrder.unLock()))
-
   },
 
   onGetToken: function(){
@@ -58,6 +55,49 @@ Page({
   onGetIMEI:function(){
     console.log('获取IMEI')
     Ble.sendMsg(Dec.Encrypt(OpOrder.getIMEI()))
-  }
+  },
 
+  onInterval:function(){
+    
+  },
+
+  onLockTap:function(){
+    if (lockStatus == 1) {
+      console.log('升锁')
+      Ble.sendMsg(Dec.Encrypt(OpOrder.lock()))
+      
+      var count = 1
+      var that = this
+      lockStatus = 0
+      interval = setInterval(function () {
+        console.log(count)
+        that.setData({
+          bgPosition: count * 300
+        })
+        count++
+        if (count == 8) {
+          clearInterval(interval)
+        }
+
+      }, 100)
+    } else {
+      console.log('降锁')
+      Ble.sendMsg(Dec.Encrypt(OpOrder.unLock()))
+
+      lockStatus = 1
+      var count = 7
+      var that = this
+      interval = setInterval(function () {
+        console.log(count)
+        that.setData({
+          bgPosition: count * 300
+        })
+        count--
+        if (count == 0) {
+          clearInterval(interval)
+        }
+
+      }, 100)
+    }
+  }
 })

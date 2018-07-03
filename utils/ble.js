@@ -149,6 +149,10 @@ class Bluetooth {
   }
   //发送蓝牙数据
   static sendMsg(hex) {
+    if(deviceId == undefined){
+      console.log("发送失败 设备id为空")
+      return
+    }
     console.log("发送数据 HexString -> " + hex)
     var typedArray = new Uint8Array(hex.match(/[\da-f]{2}/gi).map(function(h) {
       return parseInt(h, 16)
