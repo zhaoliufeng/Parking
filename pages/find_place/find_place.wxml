@@ -1,0 +1,14 @@
+<!--pages/find_place/find_place.wxml-->
+<view class='bg'>
+  <view id='input_bg'>
+    <input id='input' placeholder='您想去哪里?' value='{{inputValue}}' bindinput='onInputChange'>
+
+    </input>
+
+    <view id='search' bindtap='onSearch'>搜索</view>
+  </view>
+
+  <view bindtouchstart="onBindSelect" data-keywords="{{i}}" class="text_box" wx:for="{{tips}}" wx:key='1' wx:for-item="i">
+    {{i.name}}
+  </view>
+</view>

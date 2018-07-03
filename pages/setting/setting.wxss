@@ -62,7 +62,7 @@
 }
 
 #item_switch {
-  right: 80rpx;
+  right: 90rpx;
 }
 
 #view_item_switch:active {

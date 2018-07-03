@@ -1,1 +1,17 @@
 /* pages/message/message.wxss */
+
+#iv_no_message{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+#view_frame{
+  margin-top: 400rpx;
+  text-align: center;
+}
+
+#tv_no_message{
+  color: #FD7543;
+  font-size: 35rpx;
+  font-weight: 600rpx;
+}

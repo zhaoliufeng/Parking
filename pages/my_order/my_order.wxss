@@ -1,1 +1,54 @@
 /* pages/my_order/my_order.wxss */
+
+#view_price {
+  border-bottom: 1px solid #eee;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+#order_text {
+  color: #aaa;
+  font-size: 30rpx;
+  align-self: flex-end;
+}
+
+#order_price {
+  margin-left: 10rpx;
+  color: #f55;
+  font-size: 33rpx;
+  align-self: flex-end;
+}
+
+.order_pay_status {
+  color: #FD7543;
+  font-size: 30rpx;
+  position: absolute;
+  right: 40rpx;
+}
+
+#status_paied{
+  color: #4FC465;
+}
+
+#order_time {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-left: 30rpx;
+  color: #aaa;
+  font-size: 30rpx;
+}
+
+#view_frame{
+  margin-top: 600rpx;
+  text-align: center;
+}
+
+#tv_no_message{
+  color: #FD7543;
+  font-size: 35rpx;
+  font-weight: 600rpx;
+}

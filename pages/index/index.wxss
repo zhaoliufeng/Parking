@@ -134,7 +134,11 @@
 }
 
 .main_button{
-   background: #e4683a;
+   background: #FD7543;
+}
+
+.main_button:active{
+  background: #e4683a;
 }
 
 .cv_rent {

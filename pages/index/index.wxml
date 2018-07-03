@@ -17,10 +17,10 @@
       <cover-view id='cv_lock_type'>
         <cover-image src='../../img/account_selected.png' id='lock_info_type'></cover-image>
       </cover-view>
-      <cover-view id='cv_address'>宝安区西乡街道双龙花园17栋2单元311</cover-view>
+      <cover-view id='cv_address'>{{markerAddress}}</cover-view>
       <cover-view id='cv_dis_price'>
         <cover-view id='cv_distance'>
-          1000米
+          {{distance}}米
         </cover-view>
         <cover-view id='cv_price'>
           4元/小时

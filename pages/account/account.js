@@ -24,6 +24,10 @@ Page({
         // wx.navigateTo({
         //   url: '',
         // })
+        wx.showToast({
+          title: '暂无收益',
+          icon: 'none'
+        })
         break;
       case '2':
         console.log('我的订单')

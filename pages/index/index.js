@@ -2,7 +2,6 @@
 //获取应用实例
 const app = getApp()
 var amapFile = require('../../libs/amap-wx.js')
-var amap = require('../../utils/amap.js')
 //当前显示信息的marker id
 var showMarkerId;
 var mapCtx;
@@ -12,14 +11,18 @@ Page({
       latitude: '22.55329',
       longitude: '113.88308',
       iconPath: '../../img/poi_selected.png',
-      id: 1,
+      id: 0,
+      address: '深圳市宝安区新安街道宝民一路海雅缤纷城',
+      distance: 3523.8,
       width: 18,
       height: 27
     }, {
       latitude: '22.55329',
       longitude: '113.89308',
       iconPath: '../../img/poi_selected.png',
-      id: 2,
+      address: '宝安区西乡街道双龙花园17栋2单元311',
+      id: 1,
+      distance: 231.8,
       width: 18,
       height: 27
     }],
@@ -31,8 +34,10 @@ Page({
       radius: 2000,
       strokeWidth: '3'
     }],
+    markerAddress:'',
     showLockInfo: false,
-    scale: 14,
+    scale: 15,
+    distance: 0,
     latitude: '22.55329',
     longitude: '113.88308',
     locatMarginTop: '-180rpx',
@@ -42,12 +47,17 @@ Page({
   //地图marker点击事件
   makertap: function(e) {
     console.log('marker tap ' + e.markerId)
+    showMarkerId = e.markerId
     if (!this.data.showLockInfo) {
       this.setData({
         locatMarginTop: '-360rpx',
-        showLockInfo: true
+        showLockInfo: true,
       })
     }
+    this.setData({
+      markerAddress: this.data.markers[showMarkerId].address,
+      distance: this.data.markers[showMarkerId].distance
+    })
   },
 
   maptap: function() {
@@ -61,6 +71,13 @@ Page({
   },
   onguide: function() {
     console.log("导航到此处")
+    var that = this
+    wx.openLocation({
+      latitude: Number(that.data.markers[showMarkerId].latitude),
+      longitude: Number(that.data.markers[showMarkerId].longitude),
+      scale: 18,
+      address: that.data.markers[showMarkerId].address
+    })
   },
 
   onrent: function() {
@@ -110,6 +127,10 @@ Page({
   //输入查找地点
   onFindPlace: function() {
     //跳转搜索
+    console.log("查找位置")
+    wx.navigateTo({
+      url: '/pages/find_place/find_place',
+    })
   },
 
   /**

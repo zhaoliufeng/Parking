@@ -24,15 +24,15 @@ Page({
   },
 
   bindPickerChange:function(e){
-    console.log('选择的车牌号地域编码为',
-     this.data.multiArray[0][e.detail.value[0]] + this.data.multiArray[1][e.detail.value[1]])
+    var partNumber = this.data.multiArray[0][e.detail.value[0]] + this.data.multiArray[1][e.detail.value[1]]
+    console.log('选择的车牌号地域编码为', partNumber)
+     this.setData({
+       part: partNumber
+     })
   },
 
   bindPickerColumnChange:function(e){
     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-    this.setData({
-      multiIndex: [e.detail.column, e.detail.value]
-    })
   },
 
   onConfirm:function(){
@@ -42,11 +42,12 @@ Page({
       plateNumber: this.data.plateNumber
     })
     console.log(this.data.plateNumber)
-    if(this.data.plateNumber.length != 5){
+    if (this.data.plateNumber.length < 5 || this.data.plateNumber.length > 6 ){
       wx.showToast({
         title: '请确认车牌号',
         icon: 'none'
       })
+      return
     }
 
     //上传车牌号 update

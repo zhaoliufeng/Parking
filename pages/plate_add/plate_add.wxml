@@ -5,7 +5,7 @@
       <text bindtap='onSelectPart'>{{part}}</text>
       <text> · </text>
       <text bindtap='onEditPlate' id='text_bg'>969W9</text>
-      <input id='input' bindinput='onInput' value='{{plateNumber}}' maxlength='5' placeholder-class="phcolor" placeholder='00000'></input>
+      <input id='input' bindinput='onInput' value='{{plateNumber}}' maxlength='6' placeholder-class="phcolor" placeholder='000000'></input>
     </view>
   </view>
 

@@ -1,2 +1,8 @@
 <!--stage2 消息-->
-<text>pages/message/message.wxml</text>
+<view class='bg'>
+  <view id='view_frame'> 
+    <image src='/img/no_message.png' id='iv_no_message'></image>
+    <view id='tv_no_message'>暂无消息</view>
+  </view>
+
+</view>

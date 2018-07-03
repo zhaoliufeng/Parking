@@ -1,7 +1,9 @@
 var amapFile = require('../libs/amap-wx.js');
 // 高德开发者key
 let key = 'bceeef2c04d6e5a4c33b3a981b26099e';
-let myAmapFun = new amapFile.AMapWX({ key });
+let myAmapFun = new amapFile.AMapWX({
+  key
+});
 
 class Amap {
   /**
@@ -9,21 +11,31 @@ class Amap {
    * @param {string} querykeywords 
    */
   static getPoiAround(querykeywords = '') {
-    return new Promise((resolve, reject) => myAmapFun.getPoiAround({ querykeywords, success: resolve, fail: reject }));
+    return new Promise((resolve, reject) => myAmapFun.getPoiAround({
+      querykeywords,
+      success: resolve,
+      fail: reject
+    }));
   }
 
   /**
    * 获取地理描述数据
    */
   static getRegeo() {
-    return new Promise((resolve, reject) => myAmapFun.getRegeo({ success: resolve, fail: reject }));
+    return new Promise((resolve, reject) => myAmapFun.getRegeo({
+      success: resolve,
+      fail: reject
+    }));
   }
   /**
    * 获取天气数据
    *
    */
   static getWeather() {
-    return new Promise((resolve, reject) => myAmapFun.getWeather({ success: resolve, fail: reject }));
+    return new Promise((resolve, reject) => myAmapFun.getWeather({
+      success: resolve,
+      fail: reject
+    }));
   }
 
   /**
@@ -32,7 +44,13 @@ class Amap {
    * @param {string} location 
    */
   static getInputtips(city, location = '', keywords = '') {
-    return new Promise((resolve, reject) => myAmapFun.getInputtips({ keywords, location, city, success: resolve, fail: reject }));
+    return new Promise((resolve, reject) => myAmapFun.getInputtips({
+      keywords,
+      location,
+      city,
+      success: resolve,
+      fail: reject
+    }));
   }
 
   /**
@@ -45,7 +63,13 @@ class Amap {
    * @param {string} destination 
    */
   static getRoute(origin, destination, type, city) {
-    return new Promise((resolve, reject) => myAmapFun[type]({ origin, destination, city, success: resolve, fail: reject }));
+    return new Promise((resolve, reject) => myAmapFun[type]({
+      origin,
+      destination,
+      city,
+      success: resolve,
+      fail: reject
+    }));
   }
 }
 

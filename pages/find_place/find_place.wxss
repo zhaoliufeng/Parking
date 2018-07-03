@@ -1,0 +1,48 @@
+/* pages/find_place/find_place.wxss */
+
+#input_bg {
+  background: #fd7543;
+  /* background: wheat; */
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+#input {
+  padding-left: 30rpx;
+  padding-right: 20rpx;
+  margin-left: 5%;
+  line-height: 100rpx;
+  background: white;
+  width: 72%;
+  height: 70%;
+  border-bottom-left-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+  font-size: 32rpx;
+}
+
+.text_box{
+  color: #666;
+  font-size: 32rpx;
+  background: white;
+  padding: 10rpx 45rpx;
+  border-bottom:1px solid #c3c3c3;
+  padding-bottom:10px;
+}
+
+#search{
+  background: wheat;
+  height: 70%;
+  width: 90rpx;
+  color: grey;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+#search:active{
+  background: #d4c09b;
+}

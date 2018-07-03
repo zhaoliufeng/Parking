@@ -1,2 +1,17 @@
 <!--stage2 我的订单-->
-<text>pages/my_order/my_order.wxml</text>
+<view class='bg'>
+  <view style='background:white' wx:for='{{orders}}' wx:for-item="item" wx:key='{{item.index}}'>
+    <view id='view_price'>
+      <view id='order_text'>金额:</view>
+      <view id='order_price'>{{item.price}}</view>
+      <view class='order_pay_status' id='status_paied' wx:if='{{item.status == 1}}'>已支付</view>
+      <view class='order_pay_status' wx:if='{{item.status == 0}}'>未支付</view>
+    </view>
+
+    <view id='order_time'>{{item.order_time}}</view>
+  </view>
+
+  <view id='view_frame'>
+    <view id='tv_no_message'>暂无订单</view>
+  </view>
+</view>
