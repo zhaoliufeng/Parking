@@ -4,9 +4,10 @@ var OpOrder = require('../../utils/op.js');
 var Ble = require('../../utils/ble.js');
 var interval
 var lockStatus = 1
+var lockStatusTemp = 0
 Page({
   data: {
-    bgPosition: 300
+    bgPosition: 500
   },
 
   onLoad: function(options) {
@@ -57,44 +58,43 @@ Page({
     Ble.sendMsg(Dec.Encrypt(OpOrder.getIMEI()))
   },
 
-  onInterval:function(){
-    
-  },
-
   onLockTap:function(){
-    if (lockStatus == 1) {
+    if (lockStatusTemp != lockStatus && lockStatus == 1) {
+      lockStatusTemp = lockStatus
       console.log('升锁')
       Ble.sendMsg(Dec.Encrypt(OpOrder.lock()))
       
       var count = 1
       var that = this
-      lockStatus = 0
+     
       interval = setInterval(function () {
         console.log(count)
         that.setData({
-          bgPosition: count * 300
+          bgPosition: count * 500
         })
         count++
         if (count == 8) {
           clearInterval(interval)
+          lockStatus = 0
         }
 
       }, 100)
-    } else {
+    } else if (lockStatusTemp != lockStatus && lockStatus == 0){
+      lockStatusTemp = lockStatus
       console.log('降锁')
       Ble.sendMsg(Dec.Encrypt(OpOrder.unLock()))
 
-      lockStatus = 1
       var count = 7
       var that = this
       interval = setInterval(function () {
         console.log(count)
         that.setData({
-          bgPosition: count * 300
+          bgPosition: count * 500
         })
         count--
         if (count == 0) {
           clearInterval(interval)
+          lockStatus = 1
         }
 
       }, 100)

@@ -15,15 +15,16 @@ Page({
     switch (selectRow) {
       case '0':
         console.log('账户余额')
-        // wx.navigateTo({
-        //   url: '',
-        // })
+        wx.login({
+          success: function(res) {
+            console.log("登录返回code " + res.code) 
+          },
+          fail: function(res) {},
+          complete: function(res) {},
+        })
         break;
       case '1':
         console.log('收益情况')
-        // wx.navigateTo({
-        //   url: '',
-        // })
         wx.showToast({
           title: '暂无收益',
           icon: 'none'

@@ -10,7 +10,7 @@
   <view class='view_item' bindtap='onItemTap' data-row='0'>
     <view class='tv_item'>降锁方式</view>
     <view id='blance'>
-      <view id='view_blance'>自动降锁</view>
+      <view id='view_blance'>{{unlockType}}</view>
     </view>
     <view class='arrow_item'>
       <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
