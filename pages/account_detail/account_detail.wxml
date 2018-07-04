@@ -1,6 +1,6 @@
 <!--stage2 账户详情-->
 <view id='bg'>
-   <view class='view_item' bindtap='onItemTap' id='group_view_avater' data-row='0'>
+  <view class='view_item' bindtap='onItemTap' id='group_view_avater' data-row='0'>
     <view class='tv_item'>头像</view>
 
     <view id='view_avater'>
@@ -10,13 +10,13 @@
     <view class='arrow_item' id='arrow_item_avater'>
       <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' id='iv_arrow_item_avater' />
     </view>
-  </view> 
+  </view>
 
   <view class='view_item' bindtap='onItemTap' data-row='1'>
 
     <view class='tv_item'>昵称</view>
     <view id='blance'>
-      <view id='view_blance'>Zhaoliufeng</view>
+      <view id='view_blance'>{{nickName}}</view>
     </view>
     <view class='arrow_item'>
       <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
@@ -27,7 +27,7 @@
 
     <view class='tv_item'>手机</view>
     <view id='blance'>
-      <view id='view_blance'>17681612048</view>
+      <view id='view_blance'>{{phone}}</view>
     </view>
     <view class='arrow_item'>
       <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
@@ -39,10 +39,22 @@
 
     <view class='tv_item'>年龄</view>
     <view id='blance'>
-      <view id='view_blance'>22</view>
+      <view id='view_blance'>{{age}}</view>
     </view>
     <view class='arrow_item'>
       <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="onHideDialog" catchtouchmove="preventTouchMove" wx:if="{{showDialog}}"></view>
+  <view class="modal-dialog" wx:if="{{showDialog}}">
+    <view class="modal-title">{{dialogTitle}}</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input placeholder-class="input-holder" bindinput='onInput' id="inputInfo" placeholder="{{inputPlaceholder}}" value='{{uesrInfo}}' />
+      </view>
+      <view class="btn_model" bindtap='onConfirm'>确定</view>
     </view>
   </view>
 </view>

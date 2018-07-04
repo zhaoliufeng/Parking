@@ -36,7 +36,7 @@ Page({
     }],
     markerAddress:'',
     showLockInfo: false,
-    scale: 15,
+    scale: 14,
     distance: 0,
     latitude: '22.55329',
     longitude: '113.88308',
@@ -75,7 +75,7 @@ Page({
     wx.openLocation({
       latitude: Number(that.data.markers[showMarkerId].latitude),
       longitude: Number(that.data.markers[showMarkerId].longitude),
-      scale: 18,
+      scale: 14,
       address: that.data.markers[showMarkerId].address
     })
   },

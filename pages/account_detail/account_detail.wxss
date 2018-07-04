@@ -90,3 +90,85 @@
   font-weight: 300;
   font-size: 33rpx;
 }
+
+/* 弹窗遮罩 */
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  align-items: center;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: white;
+  margin: -270rpx 105rpx;
+  border-radius: 15rpx;
+}
+
+.modal-title {
+  border-bottom: 1px solid #dedede;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  font-size: 35rpx;
+  color: white;
+  text-align: center;
+  background: #fd7543;
+}
+
+.modal-content {
+  padding: 35rpx 32rpx;
+  padding-top: 25rpx;
+}
+
+.modal-input {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+/*输入placeholder样式*/
+
+.input-holder {
+  color: #bababa;
+  font-size: 30rpx;
+}
+
+/* 输入框输入 */
+
+#inputInfo {
+  border-radius: 9rpx;
+  border: 1px solid #dedede;
+  width: 440rpx;
+  height: 75rpx;
+  font-size: 28rpx;
+  line-height: 65rpx;
+  padding: 0 20rpx;
+  color: #333;
+}
+
+.btn_model {
+  margin-top: 20rpx;
+  background: #fd7543;
+  color: white;
+  border-radius: 7rpx;
+  width: 480rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 27rpx;
+  text-align: center;
+}
