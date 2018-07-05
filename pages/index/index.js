@@ -1,4 +1,5 @@
 //index.js
+var Net = require('../../utils/NetRequest.js');
 //获取应用实例
 const app = getApp()
 var amapFile = require('../../libs/amap-wx.js')
@@ -152,6 +153,7 @@ Page({
             strokeWidth: '3'
           }]
         })
+        Net.queryScopeList(res.latitude, res.longitude)
       }
     })
   }

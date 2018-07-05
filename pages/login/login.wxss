@@ -1,0 +1,66 @@
+/* pages/login/login.wxss */
+
+#icon_app {
+  margin-top: 200rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+#input_account {
+  margin-top: 80rpx;
+  width: 75%;
+  height: 90rpx;
+  border-radius: 9rpx;
+  border: 1px solid #dedede;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-size: 30rpx;
+}
+
+#input_pw {
+  margin-top: 30rpx;
+  width: 75%;
+  height: 90rpx;
+  border-radius: 9rpx;
+  border: 1px solid #dedede;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-size: 30rpx;
+}
+
+#btn_confirm {
+   margin-top: 30rpx;
+  width: 75%;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  background: #fd7543;
+  border-radius: 9rpx;
+  color: white;
+  font-size: 30rpx;
+}
+
+#btn_confirm:active{
+  background: #e4683a;
+}
+
+#tv_frame {
+   margin-top: 30rpx;
+  width: 80%;
+  background: wheat;
+  display: flex;
+}
+
+#reg {
+  position: absolute;
+  left: 12.5%;
+  font-size: 30rpx;
+  color: #fd7543;
+}
+
+#find_pw {
+  position: absolute;
+  right: 12.5%;
+  font-size: 30rpx;
+  color: #fd7543;
+}

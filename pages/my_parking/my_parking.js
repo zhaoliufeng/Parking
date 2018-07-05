@@ -1,7 +1,5 @@
 // pages/my_parking/my_parking.js
 Page({
-
-
   data: {
     showDialog: true,
     lockCode: null,

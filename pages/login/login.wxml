@@ -1,0 +1,11 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <image src='/img/app_icon.png' id='icon_app'></image>
+  <input placeholder='请输入账号' id='input_account' value='{{inputAccount}}' bindinput='onAccountInput'></input>
+  <input placeholder='请输入密码' id='input_pw' value='{{inputPw}}' bindinput='onPwInput'></input>
+  <view id='btn_confirm' bindtap='onConfirm'>确定</view>
+  <view id='tv_frame'>
+    <view id='reg' bindtap='onRegister'>注册</view>
+    <view id='find_pw' bindtap='onFindPw'>忘记密码</view>
+  </view>
+</view>
