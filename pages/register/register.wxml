@@ -1,0 +1,12 @@
+<!--pages/register/register.wxml-->
+<view class='container'>
+  <input placeholder='请输入您的手机号' id='input_account' value='{{inputAccount}}' bindinput='onAccountInput'></input>
+  <input placeholder='6-18位的数组字母组合' id='input_pw' value='{{inputPw}}' bindinput='onPwInput'></input>
+  <view id='ver_frame'>
+    <input placeholder='验证码' id='input_verification' value='{{inputVer}}' bindinput='onVerInput'></input>
+    <view id='get_ver' bindtap='onGetVer'>获取验证码</view>
+  </view>
+
+
+  <view id='btn_confirm' bindtap='onConfirm'>确定</view>
+</view>

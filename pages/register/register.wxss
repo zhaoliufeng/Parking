@@ -1,0 +1,68 @@
+/* pages/register/register.wxss */
+
+#input_account {
+  margin-top: 80rpx;
+  width: 75%;
+  height: 90rpx;
+  border-radius: 9rpx;
+  border: 1px solid #dedede;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-size: 30rpx;
+}
+
+#input_pw {
+  margin-top: 30rpx;
+  width: 75%;
+  height: 90rpx;
+  border-radius: 9rpx;
+  border: 1px solid #dedede;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-size: 30rpx;
+}
+
+#input_verification {
+  align-self: flex-start;
+  margin-top: 30rpx;
+  width: 400rpx;
+  height: 90rpx;
+  border-radius: 9rpx;
+  border: 1px solid #dedede;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-size: 30rpx;
+}
+
+#ver_frame {
+  display: flex;
+}
+
+#get_ver {
+  margin-left: 10rpx;
+  margin-top: 30rpx;
+  text-align: center;
+  line-height: 90rpx;
+  height: 90rpx;
+  width: 160rpx;
+  background: #fd7543;
+  border-radius: 9rpx;
+  color: white;
+  font-size: 26rpx;
+}
+
+#get_ver:active{
+  background: #e4683a;
+}
+
+#btn_confirm {
+  margin-top: 30rpx;
+  width: 75%;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  background: #fd7543;
+  border-radius: 9rpx;
+  color: white;
+  font-size: 30rpx;
+}

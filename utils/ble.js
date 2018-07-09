@@ -109,11 +109,11 @@ class Bluetooth {
                             console.log("读取到Token值 -> " + getApp().token)
                           }
                           //获取到IMEI
-                          if(resStr.indexOf("fa0606") == 0){
+                          if (resStr.indexOf("fa0606") == 0) {
                             console.log("读取到IMEI值 -> " + resStr.substring(8, 24))
                           }
 
-                          if(resStr.indexOf("020201") == 0){
+                          if (resStr.indexOf("020201") == 0) {
                             console.log("读取到电量 ->" + resStr.substring(6, 8))
                           }
                         })
@@ -142,14 +142,14 @@ class Bluetooth {
   static disconnect() {
     wx.closeBLEConnection({
       deviceId: deviceId,
-      success: function (res) { 
+      success: function(res) {
         console.log("成功断开连接")
       },
     })
   }
   //发送蓝牙数据
   static sendMsg(hex) {
-    if(deviceId == undefined){
+    if (deviceId == undefined) {
       console.log("发送失败 设备id为空")
       return
     }
@@ -176,10 +176,13 @@ class Bluetooth {
 
   //回调测试接口
   static getId({
-    deviceId: id,
     callBack: call
   }) {
-    call(id)
+    this.callA(call)
+  }
+
+  static callA(call) {
+    call(1111)
   }
 }
 

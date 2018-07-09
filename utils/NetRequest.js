@@ -21,9 +21,7 @@ const QUERY_SCOPE_LIST = 'device/queryScopeList'
 class NetRequest {
 
   //用户登录
-  static login(account, password, {
-    success: call
-  }) {
+  static login(account, password, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -53,9 +51,7 @@ class NetRequest {
   }
 
   //用户注册
-  static register(account, password, {
-    success: call
-  }) {
+  static register(account, password, chptcha, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -80,8 +76,8 @@ class NetRequest {
         },
         "sndChptchaPo": {
           "sendType": 1,
-          "phone": "手机号",
-          "chptcha": "区号"
+          "phone": account,
+          "chptcha": chptcha
         }
       }
     }
@@ -90,9 +86,7 @@ class NetRequest {
   }
 
   //用户找回密码
-  static resetPwd(phone, password, salt, {
-    success: call
-  }) {
+  static resetPwd(phone, password, salt, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -108,16 +102,14 @@ class NetRequest {
   }
 
   //请求手机短信验证码
-  static SMSSend(phone,{
-    success: call
-  }){
+  static SMSSend(phone,call) {
     var data = {
       "statuscode": 0,
       "message": "",
       "data": {
         "sendType": 1,
         "phone": phone,
-        "code": "区号"
+        "code": "+86"
       }
     }
 
@@ -125,9 +117,7 @@ class NetRequest {
   }
 
   //请求附近的地锁
-  static queryScopeList(latitude, longitude, {
-    success: call
-  }) {
+  static queryScopeList(latitude, longitude, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -142,7 +132,7 @@ class NetRequest {
   }
 
   //添加车牌号
-  static insertPlate(platenumHead, platenumTail, {success:call}){
+  static insertPlate(platenumHead, platenumTail, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -156,7 +146,7 @@ class NetRequest {
     this.request(PLATE_INSERT, data, call)
   }
   //删除车牌号
-  static deletePlate(id, {success:call}){
+  static deletePlate(id, call) {
     var data = {
       "statuscode": 0,
       "message": "",

@@ -153,7 +153,11 @@ Page({
             strokeWidth: '3'
           }]
         })
-        Net.queryScopeList(res.latitude, res.longitude)
+        Net.queryScopeList(res.latitude, res.longitude,{
+          scuess:function(){
+            
+          }
+        })
       }
     })
   }
