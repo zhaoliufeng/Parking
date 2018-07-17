@@ -3,7 +3,6 @@ const BASE_URL = 'http://39.108.219.86:8080/tcw/'
 const USER_LOGIN = 'user/login'
 const USER_REGISTER = 'user/register'
 const USER_REST_PWD = 'user/resetPwd'
-
 //手机短信验证码
 const SMS_SEND = 'sendsms/send'
 
@@ -14,10 +13,18 @@ const PLATE_INSERT = 'platenum/insert'
 const PLATE_DELETE = 'platenum/delete'
 //查询车牌列表
 const PLATE_QUERY_LIST = 'platenum/list'
+
 /*车位操作 */
 //查询附近车位
 const QUERY_SCOPE_LIST = 'device/queryScopeList'
 
+/*车位出租*/
+//立即出租
+const DEVICE_SHARE = 'device/shareDevice'
+//停止出租
+const DEVICE_STOP_SHARE = 'device/stopshareDevice'
+//延迟出租
+const DEVICE_DELAY_SHARE = 'device/addTimeShareDevice'
 class NetRequest {
 
   //用户登录
@@ -157,13 +164,62 @@ class NetRequest {
     this.request(PLATE_DELETE, data, call)
   }
   //查询车牌列表
-
+  static queryPlateList(id, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "id": id
+      }
+    }
+    this.request(PLATE_QUERY_LIST, data, call)
+  }
   //立即出租
-
+  static shareDevice(userId, deviceId, startTime, endTime, freeset, moneyhour, moneyOverTime, call){
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "userId": userId,
+        "deviceId": deviceId,
+        "startTime": startTime,
+        "endTime": endTime,
+        "freeset": freeset,
+        "moneyhour": moneyhour,
+        "moneyovertime": moneyOverTime
+      }
+    }
+    this.request(DEVICE_SHARE, data, call)
+  }
   //停止出租
+  static stopShareDevice(userId, deviceId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "userId": userId,
+        "deviceId": deviceId
+      }
+    }
 
+    this.request(DEVICE_STOP_SHARE, data, call)
+  }
   //延时出租
+  static delayShareDevice(userId, deviceId, startTime, endTime, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "userId": userId,
+        "deviceId": deviceId,
+        "startTime": startTime,
+        "endTime": endTime
+      }
+    }
+    this.request(DEVICE_DELAY_SHARE, data, call)
+  }
 
+  
   static request(url, data, call) {
     wx.request({
       url: BASE_URL + url,
