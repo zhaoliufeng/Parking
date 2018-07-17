@@ -6,7 +6,19 @@ Page({
     accountName: 'Zhaoliufeng',
     accountPhone: '18720424911'
   },
-  onLoad: function() {},
+  onLoad: function() {
+    if(getApp().isLogin){
+      wx.showToast({
+        title: '已登录',
+        icon: 'none'
+      })
+    }else{
+      wx.showToast({
+        title: '未登录',
+        icon: 'none'
+      })
+    }
+  },
 
   //列表点击事件 0 我的钱包 1 收益情况 2 我的订单 3 设置 4 消息
   onItemTap: function(e) {

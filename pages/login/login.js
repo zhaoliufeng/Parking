@@ -1,5 +1,6 @@
 // pages/login/login.js
 var Net = require('../../utils/NetRequest.js');
+var Storage = require('../../utils/storageUitl.js')
 
 Page({
 
@@ -23,7 +24,8 @@ Page({
     var account = this.data.inputAccount
     var passoword = this.data.inputPw
     Net.login(account, passoword, function(data) {
-        console.log(data.message)
+        console.log(data.data.id)
+        Storage.saveUserId(data.data.id)
       })
   },
 

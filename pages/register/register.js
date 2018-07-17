@@ -34,10 +34,11 @@ Page({
 
   //确认
   onConfirm: function() {
+    console.log("confirm" + this.data.phone)
     var phone = this.data.phone
     var pwd = this.data.password
     var chptcha = this.data.chptcha
-    if (inputCheck()) {
+    if (this.inputCheck()) {
       Net.register(phone, pwd, chptcha, function(data) {
         console.log(data)
       })
@@ -52,7 +53,6 @@ Page({
       if(data.statuscode == 200){
         uitl.toast('获取验证码成功')
       }
-      
     })
   },
 
@@ -71,5 +71,6 @@ Page({
       uitl.toast('请确认验证码格式')
       return false
     }
+    return true
   }
 })

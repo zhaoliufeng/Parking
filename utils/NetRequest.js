@@ -18,6 +18,12 @@ const PLATE_QUERY_LIST = 'platenum/list'
 //查询附近车位
 const QUERY_SCOPE_LIST = 'device/queryScopeList'
 
+/*地锁*/
+//激活地锁
+const DEVICE_ACTIVE = 'devcie/insertDeviceActive'
+//完善地锁GPS信息
+const UPDATE_GPS = 'devcie/updateGPS'
+
 /*车位出租*/
 //立即出租
 const DEVICE_SHARE = 'device/shareDevice'
@@ -109,7 +115,7 @@ class NetRequest {
   }
 
   //请求手机短信验证码
-  static SMSSend(phone,call) {
+  static SMSSend(phone, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -175,7 +181,7 @@ class NetRequest {
     this.request(PLATE_QUERY_LIST, data, call)
   }
   //立即出租
-  static shareDevice(userId, deviceId, startTime, endTime, freeset, moneyhour, moneyOverTime, call){
+  static shareDevice(userId, deviceId, startTime, endTime, freeset, moneyhour, moneyOverTime, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -219,7 +225,39 @@ class NetRequest {
     this.request(DEVICE_DELAY_SHARE, data, call)
   }
 
+  //激活地锁
+  static activeDevice(userId, deviceId, devicePwd, param2, param3){
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "usersId": userId,
+        "deviceId": deviceId,
+        "devicePwd": devicePwd,
+        "param2": param2,
+        "param3": param3
+      }
+    }
+    request(DEVICE_ACTIVE, data, call)
+  }
   
+  //完善地锁GPS信息
+  static updateGPS(userId, deviceId, longitude, latitude, deviceNote, param, call){
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "usersId": userId,
+        "deviceId": deviceId,
+        "longitude": longitude,
+        "latitude": latitude,
+        "devicenote": deviceNote,
+        "param1": param
+      }
+    }
+    request(UPDATE_GPS, data, call)
+  }
+
   static request(url, data, call) {
     wx.request({
       url: BASE_URL + url,

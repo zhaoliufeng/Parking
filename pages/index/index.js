@@ -6,27 +6,10 @@ var amapFile = require('../../libs/amap-wx.js')
 //当前显示信息的marker id
 var showMarkerId;
 var mapCtx;
+var currMarker;
 Page({
   data: {
-    markers: [{
-      latitude: '22.55329',
-      longitude: '113.88308',
-      iconPath: '../../img/poi_selected.png',
-      id: 0,
-      address: '深圳市宝安区新安街道宝民一路海雅缤纷城',
-      distance: 3523.8,
-      width: 18,
-      height: 27
-    }, {
-      latitude: '22.55329',
-      longitude: '113.89308',
-      iconPath: '../../img/poi_selected.png',
-      address: '宝安区西乡街道双龙花园17栋2单元311',
-      id: 1,
-      distance: 231.8,
-      width: 18,
-      height: 27
-    }],
+    markers: [],
     cicle: [{
       latitude: '26.55329',
       longitude: '113.88308',
@@ -35,7 +18,7 @@ Page({
       radius: 2000,
       strokeWidth: '3'
     }],
-    markerAddress:'',
+    markerAddress: '',
     showLockInfo: false,
     scale: 14,
     distance: 0,
@@ -55,9 +38,14 @@ Page({
         showLockInfo: true,
       })
     }
+    currMarker = this.data.markers.find(function (marker){
+      return marker.id = showMarkerId
+    })
+
+    console.log(currMarker)
     this.setData({
-      markerAddress: this.data.markers[showMarkerId].address,
-      distance: this.data.markers[showMarkerId].distance
+      markerAddress: currMarker.address,
+      distance: currMarker.distance.toFixed(2)
     })
   },
 
@@ -74,10 +62,10 @@ Page({
     console.log("导航到此处")
     var that = this
     wx.openLocation({
-      latitude: Number(that.data.markers[showMarkerId].latitude),
-      longitude: Number(that.data.markers[showMarkerId].longitude),
+      latitude: Number(currMarker.latitude),
+      longitude: Number(currMarker.longitude),
       scale: 14,
-      address: that.data.markers[showMarkerId].address
+      address: currMarker.address
     })
   },
 
@@ -153,10 +141,27 @@ Page({
             strokeWidth: '3'
           }]
         })
-        Net.queryScopeList(res.latitude, res.longitude,{
-          scuess:function(){
-            
-          }
+        Net.queryScopeList(res.latitude, res.longitude, function(data) {
+          console.log(data)
+          //清空数组
+          that.data.markers.splice(0, that.data.markers.length)
+          data.data.forEach(function(markers, index){
+            console.log(markers)
+            that.data.markers.push({
+              latitude: markers.latitude,
+              longitude: markers.longitude,
+              iconPath: '../../img/poi_selected.png',
+              address: markers.devicenote,
+              id: markers.id,
+              distance: markers.distance,
+              width: 18,
+              height: 27
+            })
+          })
+
+          that.setData({
+            markers: that.data.markers
+          })
         })
       }
     })
