@@ -28,6 +28,15 @@ Page({
     Ble.disconnect()
   },
 
+  onRent:function(){
+    wx.switchTab({
+      url: '../index/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+
   onLocked: function() {
     console.log('升锁')
     Ble.sendMsg(Dec.Encrypt(OpOrder.lock()))
@@ -59,6 +68,7 @@ Page({
   },
 
   onLockTap:function(){
+    console.log(lockStatusTemp + " " + lockStatus)
     if (lockStatusTemp != lockStatus && lockStatus == 1) {
       lockStatusTemp = lockStatus
       console.log('升锁')

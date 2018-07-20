@@ -1,6 +1,6 @@
 // pages/login/login.js
 var Net = require('../../utils/NetRequest.js');
-var Storage = require('../../utils/storageUitl.js')
+var storage = require('../../utils/storageUitl.js')
 
 Page({
 
@@ -24,9 +24,36 @@ Page({
     var account = this.data.inputAccount
     var passoword = this.data.inputPw
     Net.login(account, passoword, function(data) {
-        console.log(data.data.id)
-        Storage.saveUserId(data.data.id)
-      })
+      console.log(data)
+      if (data.statuscode == 200) {
+        //登录成功
+        storage.saveUserId(data.data.id)
+        var subData = data.data
+        var user = {
+          nickname: subData.nickname,
+          username: subData.username,
+          email: subData.email
+        }
+        //保存用户信息
+        storage.saveUserInfo(user)
+        //保存登录状态
+        storage.saveUserLoginState(true)
+        getApp().globalData.user = user
+        wx.showToast({
+          title: "登录成功",
+          icon: 'none'
+        })
+        wx.navigateBack({
+          delta: 1,
+        })
+      } else {
+        console.log(data.message)
+        wx.showToast({
+          title: data.message,
+          icon: 'none'
+        })
+      }
+    })
   },
 
   onAccountInput: function(e) {
@@ -39,13 +66,13 @@ Page({
 
   onRegister: function() {
     wx.navigateTo({
-      url: '/pages/register/register'
+      url: '/pages/register/register?reset=false'
     })
   },
 
   onFindPw: function() {
     wx.navigateTo({
-      url: ''
+      url: '/pages/register/register?reset=true'
     })
   }
 

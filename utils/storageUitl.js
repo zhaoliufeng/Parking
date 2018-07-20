@@ -1,6 +1,6 @@
 //用户登录
 const KEY_USER_LOGIN = "key_user_login"
-const KEY_USER_NAME = "key_user_name"
+const KEY_USER_INFO = "key_user_info"
 const KEY_USER_ID = "key_user_id"
 
 const KEY_AUTO_UNLOCK = "key_auto_unlock"
@@ -17,8 +17,7 @@ class StorageUtil {
       },
       fail: function(res) {
         console.log("保存用户登录状态失败 当前状态: " + isLogin)
-      },
-      complete: function(res) {},
+      }
     })
   }
 
@@ -27,43 +26,39 @@ class StorageUtil {
     wx: wx.getStorage({
       key: KEY_USER_LOGIN,
       success: function(res) {
-        console.log("获取用户登录状态成功 当前状态: " + res.data)
+        console.log(res.data)
         return res.data
       },
       fail: function(res) {
         console.log("获取用户登录状态失败 ErrorMsg " + res.errMsg)
-      },
-      complete: function(res) {},
+      }
     })
   }
 
-  //保存用户名
-  static saveUserName(userName) {
+  //保存用户信息
+  static saveUserInfo(user) {
     wx.setStorage({
-      key: KEY_USER_NAME,
-      data: userName,
+      key: KEY_USER_INFO,
+      data: user,
       success: function(res) {
-        console.log("保存用户名成功 当前用户名: " + userName)
+        console.log(user)
       },
       fail: function(res) {
-        console.log("保存用户名失败")
-      },
-      complete: function(res) {},
+        console.log("保存用户信息失败")
+      }
     })
   }
 
-  //获取用户名
-  static getUserName() {
+  //获取用户信息
+  static getUserInfo(call) {
     wx: wx.getStorage({
-      key: KEY_USER_NAME,
+      key: KEY_USER_INFO,
       success: function(res) {
-        console.log("获取用户名成功 当前用户名: " + res.data)
-        return res.data
+        call(res.data)
       },
       fail: function(res) {
-        console.log("获取用户名失败 ErrorMsg " + res.errMsg)
-      },
-      complete: function(res) {},
+        console.log("获取用户信息失败 ErrorMsg " + res.errMsg)
+      }
     })
   }
   //保存用户id

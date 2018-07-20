@@ -2,6 +2,7 @@
 var Net = require('../../utils/NetRequest.js');
 var Ble = require('../../utils/ble.js')
 var uitl = require('../../utils/util.js')
+var isReset
 Page({
 
   /**
@@ -17,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    isReset = options.reset
   },
 
   onAccountInput: function(e) {
@@ -39,18 +40,36 @@ Page({
     var pwd = this.data.password
     var chptcha = this.data.chptcha
     if (this.inputCheck()) {
-      Net.register(phone, pwd, chptcha, function(data) {
-        console.log(data)
-      })
+      if (!isReset) {
+        Net.register(phone, pwd, chptcha, function(data) {
+          console.log(data)
+        })
+      } else {
+        Net.resetPwd(phone, pwd, chptcha, function(data) {
+          console.log(data)
+          if(data.statuscode == 200){
+            wx.showToast({
+              title: '修改成功',
+              icon: 'none'
+            })
+            wx.navigateBack({
+              delta: 1,
+            })
+          }
+        })
+      }
+
     }
   },
 
   onGetVer: function() {
     //获取验证码
     console.log('获取验证码 ' + this.data.phone)
-    Net.SMSSend(this.data.phone, function(data) {
+    var sendType = isReset ? 3 : 1
+    console.log(sendType)
+    Net.SMSSend(sendType, this.data.phone, function(data) {
       console.log(data)
-      if(data.statuscode == 200){
+      if (data.statuscode == 200) {
         uitl.toast('获取验证码成功')
       }
     })

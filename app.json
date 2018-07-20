@@ -1,12 +1,12 @@
 {
   "pages": [
-"pages/index/index",
+"pages/rented_parking/rented_parking",
+    "pages/index/index",
     "pages/login/login",
+    "pages/input_address_detail/input_address_detail",
+    "pages/account/account",
     "pages/register/register",
     "pages/account_detail/account_detail",
-    "pages/account/account",
-    "pages/input_address_detail/input_address_detail",
-    "pages/rented_parking/rented_parking",
     "pages/my_order/my_order",
     "pages/plate_add/plate_add",
     "pages/find_place/find_place",

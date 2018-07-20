@@ -1,5 +1,26 @@
 /* pages/rented_parking/rented_parking.wxss */
 
+#btn_bind {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 440rpx;
+  height: 85rpx;
+  text-align: center;
+  line-height: 85rpx;
+  margin-left: -220rpx;
+  border-radius: 9rpx;
+  font-size: 32rpx;
+  color: #fd7543;
+  align-self: center;
+  border: 1px solid #fd7543;
+}
+
+#btn_bind:active{
+  background: #fd7543;
+  color: white;
+}
+
 .btn {
   color: gray;
   margin-top: 50rpx;

@@ -1,4 +1,5 @@
 <!--stage1 tab2 已租车位-->
+<view id='btn_bind' bindtap='onRent'>立即租用</view>
 <view class='container'>
   <view class='btn' bindtap='onGetConnect'>连接设备</view>
   <view id='btn_locked' class='btn' bindtap='onLocked'>升锁</view>

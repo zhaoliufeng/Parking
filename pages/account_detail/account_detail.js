@@ -1,4 +1,5 @@
 // pages/account_detail/account_detail.js
+var app = getApp()
 //输入模式 0昵称 1手机号 2年龄
 var inputType = 0
 //输入框输入值
@@ -23,7 +24,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    if (app.globalData.user.nickname != undefined){
+      this.setData({
+        nickName: app.globalData.user.nickname,
+        phone: app.globalData.user.email
+      })
+    }
   },
 
   //列表点击事件 0 我的钱包 1 收益情况 2 我的订单 3 设置 4 消息

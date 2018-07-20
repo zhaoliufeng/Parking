@@ -114,13 +114,13 @@ class NetRequest {
     this.request(USER_REST_PWD, data, call)
   }
 
-  //请求手机短信验证码
-  static SMSSend(phone, call) {
+  //请求手机短信验证码 sendType视情况而定，手机注册时获取验证码传1，手机登录时获取验证码传2，手机找回密码时获取验证码传3
+  static SMSSend(sendType, phone, call) {
     var data = {
       "statuscode": 0,
       "message": "",
       "data": {
-        "sendType": 1,
+        "sendType": sendType,
         "phone": phone,
         "code": "+86"
       }
