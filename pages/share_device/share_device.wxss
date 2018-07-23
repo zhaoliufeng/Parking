@@ -1,0 +1,77 @@
+/* pages/share_device/share_device.wxss */
+
+#picker_date {
+  position: absolute;
+  text-align: center;
+  color: white;
+  line-height: 80rpx;
+  background: #ff7501;
+  height: 80rpx;
+  width: 50%;
+  margin-left: 5%;
+}
+
+#picker_time {
+  padding-left: 4%;
+  padding-right: 4%;
+  display: flex;
+}
+
+.menu_item {
+  margin: 10rpx;
+  color: white;
+  line-height: 80rpx;
+  height: 80rpx;
+  background: #ff7501;
+  text-align: center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  width: 48%;
+  font-size: 35rpx;
+}
+
+.info_input {
+  padding-left: 2%;
+  margin-top: 2%;
+  padding-right: 20rpx;
+  height: 90rpx;
+  margin-left: 5%;
+  width: 85%;
+  border-radius: 9rpx;
+  border: 1px solid #dedede;
+}
+
+/*输入placeholder样式*/
+
+.input-holder {
+  color: #bababa;
+  font-size: 30rpx;
+}
+
+#btn_group {
+  margin-top: 50rpx;
+  padding-left: 4%;
+  padding-right: 4%;
+  display: flex;
+}
+
+.btn_item{
+  border-radius: 15rpx;
+  margin: 10rpx;
+  color: white;
+  line-height: 90rpx;
+  height: 90rpx;
+  background: #ff7501;
+  text-align: center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  width: 48%;
+  font-size: 35rpx;
+}
+
+.tip{
+  font-size: 33rpx;
+  line-height: 80rpx;
+  margin-left: 20rpx;
+  height: 80rpx;
+}

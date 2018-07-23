@@ -1,6 +1,13 @@
 // pages/input_address_detail/input_address_detail.js
+var Net = require('../../utils/NetRequest.js');
+const util = require('../../utils/util.js')
+var app = getApp()
+
 var addressDetail
 var code
+var deviceId
+var latitude
+var longitude
 Page({
 
   /**
@@ -13,36 +20,45 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function(options) {
+    deviceId = options.deviceId
   },
 
-  onAddressTap:function(){
+  onAddressTap: function() {
     var that = this
     wx.chooseLocation({
-      success: function (res) {
-        console.log("位置名称 " + res.name + "详细地址 " + res.address)
+      success: function(res) {
+        console.log(res)
+        latitude = res.latitude
+        longitude = res.longitude
         that.setData({
           address: res.address
         })
-      },
-      fail: function (res) { },
-      complete: function (res) { },
+      }
     })
   },
 
-  onInputAddressDetail:function(e){
+  onInputAddressDetail: function(e) {
     addressDetail = e.detail.value
   },
 
-  onInputCode:function(e){
+  onInputCode: function(e) {
     code = e.detail.value
   },
 
-  onUpload:function(){
+  onUpload: function() {
+    var user = app.globalData.user;
+    var devicenote = this.data.address + addressDetail
     //上传车位信息
-    wx.navigateBack({
-      delta: 1,
-    })
+    Net.updateGPS(user.userId, deviceId,
+      longitude, latitude, devicenote, code,
+      function(data) {
+        console.log(data)
+        if (data.statuscode == 200) {
+          wx.navigateBack({
+            delta: 1,
+          })
+        }
+      })
   }
 })

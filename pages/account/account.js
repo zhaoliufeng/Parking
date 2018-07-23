@@ -38,6 +38,12 @@ Page({
       })
     } else {
       //未登录
+      isLogin = false
+      this.setData({
+        accountName: '未登录',
+        accountPhone: '',
+        money: 0
+      })
     }
   },
 

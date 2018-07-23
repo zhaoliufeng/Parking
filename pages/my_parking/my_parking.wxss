@@ -3,7 +3,6 @@
 #btn_bind {
   position: absolute;
   left: 50%;
-  top: 50%;
   width: 440rpx;
   height: 85rpx;
   text-align: center;
@@ -16,7 +15,7 @@
   border: 1px solid #fd7543;
 }
 
-#btn_bind:active{
+#btn_bind:active {
   background: #fd7543;
   color: white;
 }
@@ -119,9 +118,102 @@
   text-align: center;
 }
 
-#lock_tip{
+#lock_tip {
   font-size: 25rpx;
   margin-top: 10rpx;
   padding-left: 10rpx;
   color: #e77;
+}
+
+#un_bind {
+  position: absolute;
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+
+#bind_iv {
+  width: 100%;
+  height: 900rpx;
+}
+
+#device_list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#device_title {
+  margin-top: 20rpx;
+  display: flex;
+  position: relative;
+  line-height: 80rpx;
+  width: 100%;
+  height: 80rpx;
+}
+
+#device_type {
+  top: 10rpx;
+  position: absolute;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 30rpx;
+  background: #ff7501;
+  font-size: 30rpx;
+  color: white;
+  text-align: center;
+  line-height: 60rpx;
+  left: 20rpx;
+}
+
+#device_address{
+  top: 10rpx;
+  position: relative;
+  left: 100rpx;
+  font-size: 35rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+#device_status{
+  height: 50rpx;
+  border-bottom: solid #ccc 1rpx;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+#device_menu{
+  display: flex;
+  border-bottom: solid #ccc 1rpx;
+}
+
+.menu_item{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  border-right: solid #ccc 1rpx;
+  text-align: center;
+  line-height: 80rpx;
+  height: 80rpx;
+  width: 33%;
+  color: #555;
+  font-size: 30rpx;
+}
+
+#more_funcation{
+  border-right: solid #ccc 0rpx;
+}
+
+#un_rent{
+  position: absolute;
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+
+#find_iv{
+  width: 100%;
+  height: 900rpx;
 }

@@ -21,7 +21,7 @@ Page({
     plateId: 'B1--',
     bgPosition: 500,
     notPay: false,
-    parkTime:'0分钟'
+    parkTime: '0分钟'
   },
 
   onLoad: function(options) {
@@ -58,17 +58,16 @@ Page({
           notPay: false
         })
       }
+      that.queryState()
+      console.log("notPay >> " + that.data.notPay + " rentParking >> " + that.data.rentParking)
+      if (!that.data.notPay && that.data.rentParking) {
+        console.log("开始轮询设备状态")
+        //如果有未结清的订单则不需要去请求当前的设备状态
+        interval = setInterval(function () {
+          that.queryState()
+        }, 5000)
+      }
     })
-
-    that.queryState()
-    console.log("notPay >> " + that.data.notPay + " rentParking >> " + that.data.rentParking)
-    if (!that.data.notPay && that.data.rentParking) {
-      console.log("开始轮询设备状态")
-      //如果有未结清的订单则不需要去请求当前的设备状态
-      interval = setInterval(function() {
-        that.queryState()
-      }, 5000)
-    }
   },
 
   onHide: function() {
@@ -89,9 +88,10 @@ Page({
         })
       } else {
         deviceId = data.data.deviceId
+        var parkTime = data.data.allTimeHour == null ? 0 : data.data.allTimeHour
         that.setData({
-          parkTime: data.data.allTimeHour.toFixed(2) + '小时',
           rentParking: true,
+          parkTime: parkTime.toFixed(2) + '小时',
           address: data.data.address,
           plateId: data.data.plateId,
           money: data.data.money.toFixed(2)
@@ -103,16 +103,8 @@ Page({
           latitude = device.latitude
           longitude = device.longitude
         })
-
-        var user = app.globalData.user
-
-        if (haveGSM) {
-          //同步锁状态
-          Net.lockDeviceCloud(user.userId, 3, deviceId, function() {
-            console.log(data)
-          })
-        }
       }
+
     })
   },
 
@@ -178,6 +170,15 @@ Page({
   },
 
   onLockTap: function() {
+    //开关锁时上报锁状态
+    var user = app.globalData.user
+
+    if (haveGSM) {
+      //同步锁状态
+      Net.lockDeviceCloud(user.userId, 3, deviceId, function() {
+        console.log(data)
+      })
+    }
     console.log(lockStatusTemp + " " + lockStatus)
     if (lockStatusTemp != lockStatus && lockStatus == 1) {
       lockStatusTemp = lockStatus

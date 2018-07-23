@@ -3,7 +3,6 @@
 #btn_bind {
   position: absolute;
   left: 50%;
-  top: 50%;
   width: 440rpx;
   height: 85rpx;
   text-align: center;
@@ -272,4 +271,16 @@
   margin-top: 300rpx;
   width: 150rpx;
   height: 100rpx;
+}
+
+#un_rent{
+  position: absolute;
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+
+#find_iv{
+  width: 100%;
+  height: 900rpx;
 }

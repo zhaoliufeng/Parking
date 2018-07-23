@@ -4,6 +4,7 @@ const KEY_USER_INFO = "key_user_info"
 const KEY_USER_ID = "key_user_id"
 
 const KEY_AUTO_UNLOCK = "key_auto_unlock"
+//保存用户车位信息
 
 class StorageUtil {
 

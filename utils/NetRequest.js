@@ -36,6 +36,9 @@ const LOCK_DEVICE_GPRS = 'device/lockTheDevice'
 const DEVICE_ACTIVE = 'device/insertDeviceActive'
 //完善地锁GPS信息
 const UPDATE_GPS = 'device/updateGPS'
+//查询用户已绑定的设备
+const QUERY_DEVICE = 'device/queryDeviceByUserId'
+
 //查询收费金额
 const QUERY_VALID = 'ruleset/queryValid'
 //查询锁状态
@@ -52,9 +55,15 @@ const DEVICE_DELAY_SHARE = 'device/addTimeShareDevice'
 const HIRE_DEVICE = 'device/hireDevice'
 //停止租用
 const STOP_HIRE_DEVICE = 'device/stopHireDeviceOver'
+//查询发布历史
+const QUERY_SHARE_HISTORY = 'device/queryShareHostorylist'
 
 /*已租信息接口*/
 const QUERY_DEVICE_ORDER = 'device/queryDeviceOrder'
+/*微信支付 */
+//获取openid
+const WECHAT_PAY_OPEN_ID = 'wx/login'
+
 class NetRequest {
 
   //用户登录
@@ -181,7 +190,7 @@ class NetRequest {
   }
 
   //查询用户当前已支付的订单
-  static queryOrderList(userId, call){
+  static queryOrderList(userId, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -191,7 +200,6 @@ class NetRequest {
         "userId": userId
       }
     }
-
 
     console.log(data)
     this.request(USER_ORDER_LIST, data, call)
@@ -249,6 +257,20 @@ class NetRequest {
     }
 
     this.request(LOCK_DEVICE_GPRS, data, call)
+  }
+
+  //查询用户已绑定的设备
+  static queryDeviceByUserId(userId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "usersId": userId
+      }
+    }
+
+    console.log(data)
+    this.request(QUERY_DEVICE, data, call)
   }
   //添加车牌号
   static insertPlate(userId, platenumHead, platenumTail, call) {
@@ -314,6 +336,7 @@ class NetRequest {
       }
     }
 
+    console.log(data)
     this.request(DEVICE_STOP_SHARE, data, call)
   }
   //延时出租
@@ -357,6 +380,20 @@ class NetRequest {
     this.request(STOP_HIRE_DEVICE, data, call)
   }
 
+  static queryShareHository(userId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "currentPage": 1,
+      "perPageCount": 2,
+      "data": {
+        "userId": userId
+      }
+    }
+    console.log("查询发布历史")
+    console.log(data)
+    this.request(QUERY_SHARE_HISTORY, data, call)
+  }
   //查询当前租用状态
   static queryDeviceOrder(userId, call) {
     var data = {
@@ -412,7 +449,19 @@ class NetRequest {
         "param1": param
       }
     }
+
+    console.log(data)
     this.request(UPDATE_GPS, data, call)
+  }
+
+//获取微信支付openId
+  static wechatLogin(code, call) {
+    var data = {
+      "code": code
+    }
+
+    console.log(data)
+    this.request(WECHAT_PAY_OPEN_ID, data, call)
   }
 
   static request(url, data, call) {

@@ -1,0 +1,33 @@
+<!--pages/more_funcation/more_funcation.wxml-->
+<view class='bg'>
+  <view class='view_item' bindtap='onItemTap' data-row='0'>
+    <view class='tv_item'>延长出租</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+    <view class='view_item' bindtap='onItemTap' data-row='1'>
+    <view class='tv_item'>停止发布</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+    <view class='view_item' bindtap='onItemTap' data-row='2'>
+    <view class='tv_item'>发布历史</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+    <view class='view_item' bindtap='onItemTap' data-row='3'>
+    <view class='tv_item'>帮助</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+    <view class='view_item' bindtap='onItemTap' data-row='4'>
+    <view class='tv_item'>计费规则</view>
+    <view class='arrow_item'>
+      <image src='../../img/right_arrow_grey.png' class='iv_arrow_item' />
+    </view>
+  </view>
+</view>

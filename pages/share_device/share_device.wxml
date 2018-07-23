@@ -1,0 +1,30 @@
+<!--pages/share_device/share_device.wxml-->
+<view class='tip'>出租结束时间:</view>
+<view id='picker_time'>
+  <picker class='menu_item' mode="date" bindchange='onDateChange'>
+    <view>
+      {{date}}
+    </view>
+  </picker>
+
+  <picker class='menu_item' mode="time" bindchange='onTimeChange'>
+    <view>
+      {{time}}
+    </view>
+  </picker>
+</view>
+<view class='tip'>请留出足够的时间</view>
+
+<input wx:if='{{!delayShare}}' class='info_input' id='time' placeholder='正常租用时间（小时）' placeholder-class='input-holder' bindinput='timeInput'/>
+<input wx:if='{{!delayShare}}' class='info_input' id='price' placeholder='正常租用时间租用单价（元/小时）' placeholder-class='input-holder' bindinput='priceInput'/>
+<input wx:if='{{!delayShare}}' class='info_input' id='over_time_price' placeholder='超时租用单价（元/小时）' placeholder-class='input-holder'  bindinput='overTimePriceInput'/>
+
+<view id='btn_group'>
+  <view class='btn_item' bindtap='onCancel'> 
+    取消
+  </view>
+
+  <view class='btn_item' bindtap='onConfirm'>
+    确定
+  </view>
+</view>

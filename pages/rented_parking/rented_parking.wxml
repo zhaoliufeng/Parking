@@ -1,5 +1,9 @@
 <!--stage1 tab2 已租车位-->
-<view id='btn_bind' bindtap='onRent' wx:if="{{!rentParking}}">立即租用</view>
+<view id='un_rent' wx:if="{{!rentParking}}">
+  <image src='/img/find.jpg' id='find_iv'></image>
+  <view id='btn_bind' bindtap='onRent'>一键寻找，立即租用</view>
+</view>
+
 <view id='order_not_pay' wx:if="{{notPay}}">
   <image src='/img/no_oder.png' id='order_iv'></image>
   <view id='order_pay_tip'>您目前有尚未支付的订单</view>

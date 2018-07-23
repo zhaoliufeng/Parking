@@ -1,12 +1,16 @@
 <!--stage1 tab3 我的车位-->
-<view id='btn_bind' bindtap='onBind'>立即绑定</view>
+ <view class='bg'>
+<view id='un_bind' wx:if="{{unBindDevice}}">
+  <image src='/img/bind.jpg' id='bind_iv'></image>
+  <view id='btn_bind' bindtap='onBind'>立即绑定</view>
+</view>
 <!--弹窗-->
-<view class="modal-mask" bindtap="onHideDialog" catchtouchmove="preventTouchMove" wx:if="{{showDialog}}"></view>
+ <view class="modal-mask" bindtap="onHideDialog" catchtouchmove="preventTouchMove" wx:if="{{showDialog}}"></view>
 <view class="modal-dialog" wx:if="{{showDialog}}">
   <view class="modal-title">绑定地锁</view>
   <view class="modal-content">
     <view class="modal-input">
-      <input placeholder-class="input-holder" bindinput='inputLockCode' id="inputLockCode" placeholder="请输入地锁编码" value='{{lockCode}}'/>
+      <input placeholder-class="input-holder" bindinput='inputLockCode' id="inputLockCode" placeholder="请输入地锁编码" value='{{lockCode}}' />
       <text id='lock_tip'>{{lock_tip}}</text>
     </view>
     <view class="btn_model" id='btn_scan_code' bindtap='onScanQrCode'>扫描二维码</view>
@@ -14,3 +18,19 @@
   </view>
 </view>
 
+
+  <view style='background:white' wx:if="{{!unBindDevice}}" wx:for='{{devices}}' wx:for-item="item" wx:key='{{item.index}}'>
+    <view id='device_title'>
+      <view id='device_type'>A+</view>
+      <view id='device_address'>{{item.address}}</view>
+    </view>
+    <view id='device_status'>
+      {{item.status}}
+    </view>
+    <view id='device_menu'>
+      <view class='menu_item' bindtap='shareDevice' data-listid="{{item.deviceId}}">立即出租</view>
+      <view class='menu_item' bindtap='stopShareDevice' data-listid="{{item.deviceId}}">停止出租</view>
+      <view class='menu_item' id='more_funcation' bindtap='moreFuncation' data-listid="{{item.deviceId}}">更多功能</view>
+    </view>
+  </view>
+</view>  

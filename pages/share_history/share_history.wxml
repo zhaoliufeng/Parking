@@ -1,0 +1,9 @@
+<!--pages/share_history/share_history.wxml-->
+<view class='bg'>
+  <view id='frame' wx:for='{{list}}' wx:for-item="item" wx:key='{{item.index}}'>
+    <view id='day_ago'>{{item.dayAgo}}</view>
+    <view class='content' id='time'>{{item.time}}</view>
+    <view class='content' id='device_code'>{{item.deviceCode}}</view>
+    <view class='content' id='address'>{{item.address}}</view>
+  </view>
+</view>

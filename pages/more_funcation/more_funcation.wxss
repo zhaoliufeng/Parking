@@ -1,0 +1,39 @@
+/* pages/more_funcation/more_funcation.wxss */
+.view_item {
+  margin-top: 5rpx;
+  padding-left: 40rpx;
+  align-items: center;
+  line-height: 100rpx;
+  height: 100rpx;
+  display: flex;
+  background: white;
+}
+
+.view_item:active {
+  background: #f1f1f1;
+}
+
+.view_iv_item {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align:middle;
+  position:relative;
+}
+
+.tv_item {
+  color: #666;
+  font-size: 37rpx;
+}
+
+.iv_arrow_item {
+  right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.arrow_item {
+  position: absolute;
+  right: 20rpx;
+  height: 100rpx;
+  width: 40rpx;
+}
