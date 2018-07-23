@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/order_pay/order_pay",
     "pages/index/index",
+    "pages/order_pay/order_pay",
     "pages/my_parking/my_parking",
     "pages/share_history/share_history",
     "pages/more_funcation/more_funcation",
