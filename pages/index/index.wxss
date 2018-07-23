@@ -20,6 +20,15 @@
   margin-top: -360rpx;
 }
 
+#cv_center{
+  top: 49%;
+  left: 48%;
+  align-self: center;
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+}
+
 #find_palce {
   margin-top: 70rpx;
   line-height: 70rpx;

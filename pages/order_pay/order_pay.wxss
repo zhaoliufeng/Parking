@@ -1,0 +1,76 @@
+/* pages/order_pay/order_pay.wxss */
+
+#title_view {
+  line-height: 70rpx;
+  height: 70rpx;
+  display: flex;
+}
+
+#view_address {
+  font-size: 33rpx;
+  position: absolute;
+  left: 20rpx;
+}
+
+#view_orderid {
+  color: #ff7f00;
+  font-size: 33rpx;
+  position: absolute;
+  right: 20rpx;
+}
+
+#price_frame {
+  width: 100%;
+  text-align: center;
+}
+
+#pay_title {
+  margin-top: 20rpx;
+  font-size: 35rpx;
+}
+
+#pay_money {
+  font-size: 50rpx;
+  margin-top: 10rpx;
+}
+
+#order_detail {
+  margin-bottom: 50rpx;
+  margin-top: 20rpx;
+  font-size: 33rpx;
+}
+
+.horizontal_list {
+  border-bottom: solid #ccc 1rpx;
+  align-items: center;
+  line-height: 90rpx;
+  height: 90rpx;
+  width: 100%;
+  display: flex;
+}
+
+#title_left {
+  position: absolute;
+  left: 20rpx;
+}
+
+#cb_right {
+  position: absolute;
+  right: 20rpx;
+}
+
+#pay_with_wechat {
+  border-bottom: solid #ccc 0rpx;
+}
+
+#btn_confirm {
+  margin-top: 50rpx;
+  background: #ff7501;
+  width: 80%;
+  line-height: 100rpx;
+  text-align: center;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin-left: 10%;
+  color: white;
+}

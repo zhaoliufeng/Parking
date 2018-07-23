@@ -10,6 +10,8 @@
   </cover-image>
 
 
+  <cover-image id='cv_center' src='../../img/center_location.png'></cover-image>
+
   <cover-view id='find_palce' bindtap='onFindPlace'>您要去哪里?</cover-view>
 
   <cover-view id='lock_info' wx:if="{{showLockInfo}}">
@@ -23,21 +25,23 @@
           {{distance}}米
         </cover-view>
         <cover-view id='cv_price'>
-          4元/小时
+          {{price}}元/小时
         </cover-view>
       </cover-view>
     </cover-view>
 
-    <cover-view style='background:#dedede;height:1px;width:100%;'/>
+    <cover-view style='background:#dedede;height:1px;width:100%;' />
     <cover-view id='cv_action'>
       <cover-view class="cv_guide">
         <cover-view id='btn_guide' class='main_button' bindtap="onguide">导航到此</cover-view>
       </cover-view>
-      <cover-view style='background:#dedede;height:100%;width:1px;'/>
+      <cover-view style='background:#dedede;height:100%;width:1px;' />
 
       <cover-view class="cv_rent">
-       <cover-view id='btn_rent' class='main_button' bindtap="onrent">立即租用</cover-view>
+        <cover-view id='btn_rent' class='main_button' bindtap="onrent">立即租用</cover-view>
       </cover-view>
     </cover-view>
   </cover-view>
+
+
 </view>

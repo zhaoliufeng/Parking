@@ -46,6 +46,7 @@
     </view>
   </view>
 
+<view id='logout' bindtap='logout'>退出登录</view>
   <!--弹窗-->
   <view class="modal-mask" bindtap="onHideDialog" catchtouchmove="preventTouchMove" wx:if="{{showDialog}}"></view>
   <view class="modal-dialog" wx:if="{{showDialog}}">

@@ -1,0 +1,100 @@
+/* pages/rent_confirm/rent_confirm.wxss */
+
+.frame {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.parking_num {
+  color: #ff7501;
+  position: absolute;
+  right: 20rpx;
+}
+
+.parking_address {
+  position: absolute;
+  left: 20rpx;
+}
+
+.horizontal_list {
+  border-bottom: solid #ccc 1rpx;
+  align-items: center;
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+}
+
+.title_left {
+  color: #666;
+  font-size: 35rpx;
+  margin-left: 20rpx;
+  width: 40%;
+  border-right: solid #ccc 1rpx;
+}
+
+.content {
+  color: #666;
+  font-weight: 500;
+  margin-left: 20rpx;
+}
+
+#price{
+  height: 130rpx;
+}
+
+#low_price{
+  text-align: center;
+  width: 50%;
+  border-right: solid #ccc 1rpx;
+}
+
+#price_title{
+   color: #666;
+   font-size: 35rpx;
+}
+
+#low_price_num{
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #C24B1B;
+}
+
+#price_num{
+  color: #ff7500;
+}
+
+#import_str{
+  border-bottom: solid #ccc 1rpx;
+  padding-bottom: 40rpx;
+}
+
+#import_tip{
+  color: red;
+  font-size: 35rpx;
+  margin: 20rpx;
+}
+
+#import_content{
+  margin: 20rpx;
+}
+
+#btn_confirm{
+  text-align: center;
+  line-height: 100rpx;
+  height: 100rpx;
+  width: 80%;
+  background: #ff7501;
+  margin-left: 10%;
+  margin-top: 30rpx;
+  border-radius: 10rpx;
+  color: white;
+}
+
+#btn_confirm:active{
+   background: #FF8F00;
+}
+
+text{
+  font-size: 30rpx;
+}

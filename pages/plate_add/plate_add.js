@@ -1,4 +1,6 @@
 // pages/plate_add/plate_add.js
+var Net = require('../../utils/NetRequest.js');
+var app = getApp()
 Page({
 
   /**
@@ -36,7 +38,8 @@ Page({
   },
 
   onConfirm:function(){
-    console.log('保存车牌号');
+    var user = app.globalData.user
+    console.log('保存车牌号 ' + user.userId);
     
     this.setData({
       plateNumber: this.data.plateNumber
@@ -51,7 +54,9 @@ Page({
     }
 
     //上传车牌号 update
-    
+    Net.insertPlate(user.userId,this.data.part,this.data.plateNumber, function(data){
+      console.log(data)
+    })
     wx.navigateBack({
       //回跳页数
       delta: 1,

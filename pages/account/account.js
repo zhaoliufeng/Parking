@@ -1,20 +1,25 @@
 // pages/account/account.js
 var storage = require('../../utils/storageUitl.js')
+var Net = require('../../utils/NetRequest.js');
 var app = getApp()
 var isLogin = false
 Page({
   data: {
     accountAvater: '../../img/account_info.jpg',
     accountName: '未登录',
-    accountPhone: ''
+    accountPhone: '',
+    money: 0
   },
   onLoad: function() {
-   
+    this.showUserInfo();
   },
 
   onShow: function() {
+    this.showUserInfo();
+  },
+
+  showUserInfo: function() {
     console.log(app.globalData.user)
-    
     if (app.globalData.user.nickname != undefined) {
       isLogin = true
       var user = app.globalData.user
@@ -23,10 +28,19 @@ Page({
         accountName: user.nickname,
         accountPhone: user.email
       })
+      var that = this
+      //查询余额
+      Net.queryUserWealth(user.userId, function(data) {
+        console.log(data)
+        that.setData({
+          money: data.data.money.toFixed(2)
+        })
+      })
     } else {
       //未登录
     }
   },
+
   //列表点击事件 0 我的钱包 1 收益情况 2 我的订单 3 设置 4 消息
   onItemTap: function(e) {
     let selectRow = e.currentTarget.dataset.row

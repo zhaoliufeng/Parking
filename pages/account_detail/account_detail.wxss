@@ -172,3 +172,20 @@
   font-size: 27rpx;
   text-align: center;
 }
+
+#logout{
+  background: #ff5050;
+  color: white;
+  border-radius: 15rpx;
+  width: 80%;
+  margin-top: 60rpx;
+  position: absolute;
+  left: 10%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+#logout:active{
+   background: #Ef4040;
+}

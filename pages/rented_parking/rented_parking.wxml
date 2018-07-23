@@ -1,12 +1,60 @@
 <!--stage1 tab2 已租车位-->
-<view id='btn_bind' bindtap='onRent'>立即租用</view>
-<view class='container'>
-  <view class='btn' bindtap='onGetConnect'>连接设备</view>
-  <view id='btn_locked' class='btn' bindtap='onLocked'>升锁</view>
-  <view id='btn_unlocked' class='btn' bindtap='onUnlocked'>降锁</view>
+<view id='btn_bind' bindtap='onRent' wx:if="{{!rentParking}}">立即租用</view>
+<view id='order_not_pay' wx:if="{{notPay}}">
+  <image src='/img/no_oder.png' id='order_iv'></image>
+  <view id='order_pay_tip'>您目前有尚未支付的订单</view>
+  <view id='to_pay' bindtap='toPayOrder'>去支付</view>
+</view>
+<view class='container' wx:if="{{rentParking}}">
+  <view class='frame'>
+    <view class='horizontal_list'>
+      <view id='parking_image'>A+</view>
+      <view id='parking_address'>{{address}}</view>
+      <view id='parking_num'>{{plateId}}</view>
+    </view>
+    <view class='horizontal_list' id='order_detail'>
+      <view id='order_detail_left'>
+        <view class='horizontal_list' id='horizontal_list_frame'>
+          <view class='title_left'>已停时长：</view>
+          <view class='content'>{{parkTime}}</view>
+        </view>
+        <view class='horizontal_list' id='horizontal_list_frame'>
+          <view class='title_left'>尚可租用：</view>
+          <view class='content'>--</view>
+        </view>
+        <view class='horizontal_list' id='horizontal_list_frame'>
+          <view class='title_left' id='title_detail_left'>订单详情</view>
+          <view class='title_left' id='title_detail_right' bindtap='onguide'>导航到此</view>
+        </view>
+      </view>
+      <view id='order_detail_right'>
+        <view id='curr_price'>
+          <view class='price_margin' id='price_title'>{{money}}</view>
+          <view class='price_margin' id='low_price_yuan'>(元)</view>
+          <view class='price_margin' id='low_price_content' bindtap='stopHire'>停止租用</view>
+        </view>
+      </view>
+    </view>
+    <!-- 锁动画 -->
+    <view id='view_lock' bindtap='onLockTap'>
+      <image id='iv_locks' style='background-position:{{bgPosition}}rpx;'></image>
+    </view>
 
-  <view id='view_lock' bindtap='onLockTap'>
-    <image id='iv_locks' style='background-position:{{bgPosition}}rpx;'></image>
+    <view id='device_info'>
+      <view id='battery_info'>
+        <view id='battery_title'>信号</view>
+        <image src='../../img/icon_signal_2.png' id='iv_signal'></image>
+      </view>
+
+      <view id='battery_info'>
+        <view id='battery_title'>电量</view>
+        <progress percent="80" id='battery' />
+      </view>
+    </view>
+
+    <view id='switch_device'>
+      <view id='lock_device' bindtap='lock'>升锁</view>
+      <view id='unlock_device' bindtap='unlock'>降锁</view>
+    </view>
   </view>
-
 </view>

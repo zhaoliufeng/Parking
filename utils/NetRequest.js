@@ -3,8 +3,19 @@ const BASE_URL = 'http://39.108.219.86:8080/tcw/'
 const USER_LOGIN = 'user/login'
 const USER_REGISTER = 'user/register'
 const USER_REST_PWD = 'user/resetPwd'
+//查询用户余额
+const USER_WEALTH = 'user/queryUserWealth'
+//查询用户当前未支付订单
+const USER_NOT_PAY_ORDER = 'device/queryDeviceOrderOver'
+//查询用户当前已完成的订单
+const USER_ORDER_LIST = 'device/queryDeviceOrderHostorylist'
+//用户余额支付
+const USER_PAY_WITH_WALLET = 'order/leftPayOrder'
+
 //手机短信验证码
 const SMS_SEND = 'sendsms/send'
+//查询已租信息
+const CURRER_ORDER = 'device/queryDeviceOrder'
 
 /*车牌 */
 //添加车牌
@@ -19,10 +30,16 @@ const PLATE_QUERY_LIST = 'platenum/list'
 const QUERY_SCOPE_LIST = 'device/queryScopeList'
 
 /*地锁*/
+//远程开关锁
+const LOCK_DEVICE_GPRS = 'device/lockTheDevice'
 //激活地锁
-const DEVICE_ACTIVE = 'devcie/insertDeviceActive'
+const DEVICE_ACTIVE = 'device/insertDeviceActive'
 //完善地锁GPS信息
-const UPDATE_GPS = 'devcie/updateGPS'
+const UPDATE_GPS = 'device/updateGPS'
+//查询收费金额
+const QUERY_VALID = 'ruleset/queryValid'
+//查询锁状态
+const QUERY_DEVICE_STATE = 'device/queryDevice'
 
 /*车位出租*/
 //立即出租
@@ -31,6 +48,13 @@ const DEVICE_SHARE = 'device/shareDevice'
 const DEVICE_STOP_SHARE = 'device/stopshareDevice'
 //延迟出租
 const DEVICE_DELAY_SHARE = 'device/addTimeShareDevice'
+/*车位租用*/
+const HIRE_DEVICE = 'device/hireDevice'
+//停止租用
+const STOP_HIRE_DEVICE = 'device/stopHireDeviceOver'
+
+/*已租信息接口*/
+const QUERY_DEVICE_ORDER = 'device/queryDeviceOrder'
 class NetRequest {
 
   //用户登录
@@ -129,6 +153,75 @@ class NetRequest {
     this.request(SMS_SEND, data, call)
   }
 
+  //查询用户余额
+  static queryUserWealth(uesrId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "userId": uesrId
+      }
+    }
+
+    this.request(USER_WEALTH, data, call)
+  }
+
+  //查询用户当前未支付订单
+  static queryNotPayOrder(userId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "userId": userId
+      }
+    }
+
+    console.log(data)
+    this.request(USER_NOT_PAY_ORDER, data, call)
+  }
+
+  //查询用户当前已支付的订单
+  static queryOrderList(userId, call){
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "currentPage": 1,
+      "perPageCount": 2,
+      "data": {
+        "userId": userId
+      }
+    }
+
+
+    console.log(data)
+    this.request(USER_ORDER_LIST, data, call)
+  }
+
+  //使用余额支付账单
+  static payWithWallet(usersId, orderId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "usersId": usersId,
+        "orderId": orderId
+      }
+    }
+    this.request(USER_PAY_WITH_WALLET, data, call)
+  }
+  //查询收费金额
+  static queryValid(deviceId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "deviceid": deviceId
+      }
+    }
+
+    this.request(QUERY_VALID, data, call)
+  }
+
   //请求附近的地锁
   static queryScopeList(latitude, longitude, call) {
     var data = {
@@ -136,21 +229,34 @@ class NetRequest {
       "message": "",
       "data": {
         "latitude": latitude,
-        "longitude": longitude,
-        "param2": "2"
+        "longitude": longitude
       }
     }
 
     this.request(QUERY_SCOPE_LIST, data, call)
   }
 
-  //添加车牌号
-  static insertPlate(platenumHead, platenumTail, call) {
+  //GPRS远程开关锁
+  static lockDeviceCloud(userId, command, deviceId, call) {
     var data = {
       "statuscode": 0,
       "message": "",
       "data": {
-        "userId": 102,
+        "usersId": userId,
+        "command": command,
+        "deviceId": deviceId
+      }
+    }
+
+    this.request(LOCK_DEVICE_GPRS, data, call)
+  }
+  //添加车牌号
+  static insertPlate(userId, platenumHead, platenumTail, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "userId": userId,
         "platenumHead": platenumHead,
         "platenumTail": platenumTail
       }
@@ -175,7 +281,7 @@ class NetRequest {
       "statuscode": 0,
       "message": "",
       "data": {
-        "id": id
+        "userId": id
       }
     }
     this.request(PLATE_QUERY_LIST, data, call)
@@ -225,24 +331,75 @@ class NetRequest {
     this.request(DEVICE_DELAY_SHARE, data, call)
   }
 
+  //立即租用
+  static hireDevice(usersId, deviceId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "usersId": usersId,
+        "deviceId": deviceId
+      }
+    }
+    this.request(HIRE_DEVICE, data, call)
+  }
+
+  //停止租用
+  static stopHireDevice(usersId, deviceId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "usersId": usersId,
+        "deviceId": deviceId
+      }
+    }
+    this.request(STOP_HIRE_DEVICE, data, call)
+  }
+
+  //查询当前租用状态
+  static queryDeviceOrder(userId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "userId": userId
+      }
+    }
+
+    this.request(QUERY_DEVICE_ORDER, data, call)
+  }
+
+  //查询锁状态
+  static queryDeviceState(deviceId, call) {
+    var data = {
+      "statuscode": 0,
+      "message": "",
+      "data": {
+        "deviceId": deviceId
+      }
+    }
+
+    this.request(QUERY_DEVICE_STATE, data, call)
+  }
   //激活地锁
-  static activeDevice(userId, deviceId, devicePwd, param2, param3){
+  static activeDevice(userId, deviceId, param2, call) {
     var data = {
       "statuscode": 0,
       "message": "",
       "data": {
         "usersId": userId,
         "deviceId": deviceId,
-        "devicePwd": devicePwd,
+        "devicePwd": "123456",
         "param2": param2,
-        "param3": param3
+        "param3": "2"
       }
     }
-    request(DEVICE_ACTIVE, data, call)
+    this.request(DEVICE_ACTIVE, data, call)
   }
-  
+
   //完善地锁GPS信息
-  static updateGPS(userId, deviceId, longitude, latitude, deviceNote, param, call){
+  static updateGPS(userId, deviceId, longitude, latitude, deviceNote, param, call) {
     var data = {
       "statuscode": 0,
       "message": "",
@@ -255,7 +412,7 @@ class NetRequest {
         "param1": param
       }
     }
-    request(UPDATE_GPS, data, call)
+    this.request(UPDATE_GPS, data, call)
   }
 
   static request(url, data, call) {

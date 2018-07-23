@@ -1,4 +1,5 @@
 // pages/account_detail/account_detail.js
+var storage = require('../../utils/storageUitl.js')
 var app = getApp()
 //输入模式 0昵称 1手机号 2年龄
 var inputType = 0
@@ -119,5 +120,15 @@ Page({
 
   onInput:function(e){
     inputValue = e.detail.value
+  },
+
+  logout:function(){
+    //登出
+    storage.saveUserLoginState(false)
+    storage.saveUserInfo({})
+    getApp().globalData.user = {}
+    wx.navigateBack({
+      delta: 1,
+    })
   }
 })

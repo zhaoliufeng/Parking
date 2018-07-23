@@ -30,6 +30,7 @@ Page({
         storage.saveUserId(data.data.id)
         var subData = data.data
         var user = {
+          userId: subData.id,
           nickname: subData.nickname,
           username: subData.username,
           email: subData.email

@@ -1,0 +1,23 @@
+<!--pages/order_pay/order_pay.wxml-->
+<view id='title_view'>
+  <view id='view_address'>{{address}}</view>
+  <view id='view_orderid'>{{orderId}}</view>
+</view>
+
+<view id='price_frame'>
+  <view id='pay_title'>支付</view>
+   <view id='pay_money'>{{money}}</view>
+    <view id='order_detail'>订单详情</view>
+</view>
+
+<view class='horizontal_list'>
+    <view id='title_left'>余额支付</view>
+    <checkbox id='cb_right' checked='{{!payWithWechat}}'></checkbox>
+</view>
+
+<view class='horizontal_list' id='pay_with_wechat'>
+    <view id='title_left'>微信支付</view>
+    <checkbox id='cb_right'  checked='{{payWithWechat}}'></checkbox>
+</view>
+
+<view id='btn_confirm' bindtap='onConfirm'>支付</view>

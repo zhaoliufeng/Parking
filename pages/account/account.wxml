@@ -26,7 +26,7 @@
     <view class='tv_item'>账户余额</view>
 
     <view id='blance'>
-      <view id='view_blance'>0元</view>
+      <view id='view_blance'>{{money}}元</view>
     </view>
 
     <view class='arrow_item'>

@@ -18,6 +18,7 @@ Page({
       radius: 2000,
       strokeWidth: '3'
     }],
+    price: '',
     markerAddress: '',
     showLockInfo: false,
     scale: 14,
@@ -38,14 +39,20 @@ Page({
         showLockInfo: true,
       })
     }
-    currMarker = this.data.markers.find(function (marker){
+    currMarker = this.data.markers.find(function(marker) {
       return marker.id = showMarkerId
     })
 
     console.log(currMarker)
-    this.setData({
-      markerAddress: currMarker.address,
-      distance: currMarker.distance.toFixed(2)
+    var that = this
+    Net.queryValid(currMarker.deviceId, function(data) {
+      console.log(data)
+      var currPrice = data.data.freeset / data.data.moneyhour
+      that.setData({
+        price: currPrice.toFixed(2),
+        markerAddress: currMarker.address,
+        distance: currMarker.distance.toFixed(2)
+      })
     })
   },
 
@@ -71,6 +78,9 @@ Page({
 
   onrent: function() {
     console.log("立即租用")
+    wx.navigateTo({
+      url: '/pages/rent_confirm/rent_confirm?address=' + currMarker.address + '&parkNum=' + currMarker.param1 + "&price=" + this.data.price + "&deviceid=" + currMarker.deviceId
+    })
   },
 
   onLoad: function() {
@@ -145,16 +155,18 @@ Page({
           console.log(data)
           //清空数组
           that.data.markers.splice(0, that.data.markers.length)
-          data.data.forEach(function(markers, index){
+          data.data.forEach(function(markers, index) {
             console.log(markers)
             that.data.markers.push({
               latitude: markers.latitude,
               longitude: markers.longitude,
               iconPath: '../../img/poi_selected.png',
               address: markers.devicenote,
+              deviceId: markers.deviceId,
               id: markers.id,
+              param1: markers.param1,
               distance: markers.distance,
-              width: 18,
+              width: 27,
               height: 27
             })
           })
