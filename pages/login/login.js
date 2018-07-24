@@ -24,7 +24,6 @@ Page({
     var account = this.data.inputAccount
     var passoword = this.data.inputPw
     Net.login(account, passoword, function(data) {
-      console.log(data)
       if (data.statuscode == 200) {
         //登录成功
         storage.saveUserId(data.data.id)

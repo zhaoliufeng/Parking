@@ -53,7 +53,6 @@ Page({
     Net.updateGPS(user.userId, deviceId,
       longitude, latitude, devicenote, code,
       function(data) {
-        console.log(data)
         if (data.statuscode == 200) {
           wx.navigateBack({
             delta: 1,

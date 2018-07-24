@@ -26,7 +26,6 @@ Page({
     if (user.nickname != undefined) {
       var that = this
       Net.queryDeviceByUserId(user.userId, function(data) {
-        console.log(data)
         if (data.data.length == 0) {
           console.log("沒有绑定车位")
           that.setData({
@@ -109,7 +108,6 @@ Page({
     var user = app.globalData.user;
     var that = this
     Net.activeDevice(user.userId, this.data.lockCode, 2, function(data) {
-      console.log(data)
       if(data.statuscode == 400){
         that.setData({
           lock_tip: '设备不存在'
@@ -152,7 +150,6 @@ Page({
     var deviceId = e.currentTarget.dataset.listid
     var user = app.globalData.user;
     Net.stopShareDevice(user.userId, deviceId, function(data) {
-      console.log(data)
       //500 错误
     })
   },

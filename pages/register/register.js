@@ -42,11 +42,10 @@ Page({
     if (this.inputCheck()) {
       if (!isReset) {
         Net.register(phone, pwd, chptcha, function(data) {
-          console.log(data)
+
         })
       } else {
         Net.resetPwd(phone, pwd, chptcha, function(data) {
-          console.log(data)
           if(data.statuscode == 200){
             wx.showToast({
               title: '修改成功',
@@ -68,7 +67,6 @@ Page({
     var sendType = isReset ? 3 : 1
     console.log(sendType)
     Net.SMSSend(sendType, this.data.phone, function(data) {
-      console.log(data)
       if (data.statuscode == 200) {
         uitl.toast('获取验证码成功')
       }

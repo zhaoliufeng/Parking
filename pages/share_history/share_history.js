@@ -17,7 +17,6 @@ Page({
     var user = app.globalData.user
     var that = this
     Net.queryShareHository(user.userId, function(data) {
-      console.log(data)
       if (data.data.length == 0) {
         util.toast("暂无出租历史")
       } else {

@@ -23,7 +23,6 @@ Page({
     var that = this
     //查询未支付的订单
     Net.queryNotPayOrder(userId, function(data) {
-      console.log(data)
       if (data.data != null) {
         that.setData({
           address: data.data.address,
@@ -58,7 +57,6 @@ Page({
       //使用余额支付
       console.log("userId -> " + userId)
       Net.payWithWallet(userId, this.data.orderId, function(data) {
-        console.log(data)
         if (data.statuscode = 200) {
           wx.navigateBack({
             delta: 1,
@@ -73,7 +71,6 @@ Page({
     wx: wx.login({
       success: function(res) {
         Net.wechatLogin(res.code, function(data) {
-          console.log(data)
           wx.requestPayment({
             timeStamp: Date.parse(new Date())/1000,
             nonceStr: '5K8264ILTKCH16CQ2502SI8ZNMTM67VS',

@@ -46,7 +46,6 @@ Page({
     console.log(currMarker)
     var that = this
     Net.queryValid(currMarker.deviceId, function(data) {
-      console.log(data)
       var currPrice = data.data.freeset / data.data.moneyhour
       that.setData({
         price: currPrice.toFixed(2),
@@ -139,8 +138,6 @@ Page({
     var that = this;
     this.mapCtx.getCenterLocation({
       success: function(res) {
-        console.log('中心点纬度 ：' + res.longitude)
-        console.log('中心点经度 ：' + res.latitude)
         that.setData({
           cicle: [{
             latitude: res.latitude,
@@ -152,7 +149,6 @@ Page({
           }]
         })
         Net.queryScopeList(res.latitude, res.longitude, function(data) {
-          console.log(data)
           //清空数组
           that.data.markers.splice(0, that.data.markers.length)
           data.data.forEach(function(markers, index) {

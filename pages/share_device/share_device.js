@@ -77,7 +77,6 @@ Page({
       Net.shareDevice(user.userId, deviceId,
         startTime, endTime,
         function(data) {
-          console.log(data)
           if(data.statuscode == 200){
             wx.showToast({
               title: '延时发布成功',
@@ -102,7 +101,6 @@ Page({
         startTime, endTime,
         time, price, overTimePrice,
         function(data) {
-          console.log(data)
           if (data.statuscode == 200) {
             wx.navigateBack({
               delta: 1,

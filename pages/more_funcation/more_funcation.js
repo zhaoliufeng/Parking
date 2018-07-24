@@ -32,8 +32,7 @@ Page({
         console.log("停止发布")
         var user = app.globalData.user;
         Net.stopShareDevice(user.userId, deviceId, function (data) {
-          console.log(data)
-          
+
         })
         break
       case '2':

@@ -175,19 +175,20 @@ Page({
 
     if (haveGSM) {
       //同步锁状态
-      Net.lockDeviceCloud(user.userId, 3, deviceId, function() {
-        console.log(data)
+      Net.lockDeviceCloud(user.userId, 3, deviceId, function(data) {
+        
       })
     }
     console.log(lockStatusTemp + " " + lockStatus)
     if (lockStatusTemp != lockStatus && lockStatus == 1) {
       lockStatusTemp = lockStatus
-      console.log('升锁')
+      console.log('升锁 haveGSM --> ' + haveGSM)
       var user = app.globalData.user
 
       if (haveGSM) {
-        Net.lockDeviceCloud(user.userId, 1, deviceId, function() {
-          console.log(data)
+        console.log('通过gsm升锁')
+        Net.lockDeviceCloud(user.userId, 1, deviceId, function(data) {
+          
         })
       } else {
         Ble.sendMsg(Dec.Encrypt(OpOrder.lock()))
@@ -214,7 +215,7 @@ Page({
       console.log('降锁')
       if (haveGSM) {
         Net.lockDeviceCloud(user.userId, 0, deviceId, function(data) {
-          console.log(data)
+          
         })
       } else {
         Ble.sendMsg(Dec.Encrypt(OpOrder.unLock()))
@@ -251,7 +252,6 @@ Page({
   stopHire: function() {
     var user = app.globalData.user
     Net.stopHireDevice(user.userId, deviceId, function(data) {
-      console.log(data)
       if (data.statuscode == 200) {
         // 跳转到支付界面
         wx.navigateTo({

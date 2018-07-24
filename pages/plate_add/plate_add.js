@@ -55,7 +55,7 @@ Page({
 
     //上传车牌号 update
     Net.insertPlate(user.userId,this.data.part,this.data.plateNumber, function(data){
-      console.log(data)
+      
     })
     wx.navigateBack({
       //回跳页数

@@ -19,7 +19,6 @@ Page({
     var user = app.globalData.user
     //请求租用历史
     Net.queryOrderList(user.userId, function(data) {
-      console.log(data)
       //清空数组
       that.data.orders.splice(0, that.data.orders.length)
       data.data.forEach(function(list, index) {

@@ -32,7 +32,6 @@ Page({
     var user = app.globalData.user
     var that =this
     Net.queryPlateList(user.userId, function (data){
-      console.log(data)
       that.data.plates.splice(0, that.data.plates.length)
       data.data.forEach(function (plate, index) {
         that.data.plates.push({

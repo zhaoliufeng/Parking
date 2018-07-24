@@ -31,7 +31,6 @@ Page({
       var that = this
       //查询余额
       Net.queryUserWealth(user.userId, function(data) {
-        console.log(data)
         that.setData({
           money: data.data.money.toFixed(2)
         })

@@ -32,7 +32,6 @@ Page({
     var that = this
     //查询余额
     Net.queryUserWealth(user.userId, function(data) {
-      console.log(data)
       that.setData({
         money: data.data.money.toFixed(2)
       })
@@ -43,7 +42,6 @@ Page({
     var user = app.globalData.user
 
     Net.hireDevice(user.userId, deviceid, function(data) {
-      console.log(data)
       if (data.statuscode == 200) {
         wx.switchTab({
           url: '/pages/rented_parking/rented_parking'
